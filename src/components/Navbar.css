@@ -1,0 +1,189 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 3rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 0.5rem 3rem;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-img {
+  height: 135px;
+  width: auto;
+  margin: -40px 0;
+  transition: filter 0.3s ease;
+}
+
+/* Invert the dark logo to pure white when the navbar is transparent over the dark hero */
+.navbar:not(.scrolled) .logo-img {
+  filter: brightness(0) invert(1);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-consult {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 0.8rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.2s ease;
+}
+
+.navbar.scrolled .btn-consult {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.btn-consult:hover {
+  opacity: 0.9;
+}
+
+.btn-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled .menu-icon {
+  color: #000000;
+}
+
+/* ==========================================================================
+   Full-Screen Menu Overlay
+   ========================================================================== */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0B1F33;
+  z-index: 90; /* Below navbar (100) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-overlay-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 4rem;
+}
+
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.menu-links li {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+/* Staggered entry animation using inline CSS variable */
+.menu-overlay.open .menu-links li {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--animation-order) * 0.1s);
+}
+
+.menu-links a {
+  font-family: inherit;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -1px;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-links a:hover {
+  color: var(--brand-primary);
+  transform: translateX(15px);
+}
+
+/* Ensure navbar text is white when menu is open */
+.navbar.menu-open {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.navbar.menu-open .btn-consult {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.navbar.menu-open .btn-consult:hover {
+  background-color: var(--brand-primary);
+  color: #000;
+}
+
+.navbar.menu-open .btn-menu {
+  color: #ffffff;
+}
+
+.navbar.menu-open .logo-img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Mobile Adjustments for Menu */
+@media (max-width: 768px) {
+  .menu-overlay-content {
+    padding: 0 2rem;
+  }
+  
+  .menu-links a {
+    font-size: 3rem;
+  }
+}

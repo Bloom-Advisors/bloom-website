@@ -1,0 +1,83 @@
+:root {
+  --brand-primary: #5FA777;
+  --bg-dark: #0B1F33;
+  --text-white: #ffffff;
+  --text-muted: #d0d0d0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+html, body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Premium Split Header (Global) */
+.section-header-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #163A5F;
+}
+
+.badge-left {
+  margin: 0 0 1.5rem 0 !important;
+  align-self: flex-start;
+}
+
+.sh-left {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-right {
+  max-width: 400px;
+  padding-bottom: 0.5rem;
+}
+
+.section-heading {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.section-heading .text-muted {
+  color: #52525b; /* Zinc 600 */
+}
+
+.section-subheading {
+  color: #a1a1aa;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .section-header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
