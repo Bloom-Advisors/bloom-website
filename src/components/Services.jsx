@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { PieChart, BarChart3, LayoutDashboard } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './Services.css';
 
 const Services = () => {
@@ -10,48 +10,33 @@ const Services = () => {
   const servicesData = [
     {
       id: 1,
-      type: 'plain-cream',
-      label: 'Finance Operations',
-      title: 'Financial management and consolidation',
-      desc: 'Automate close, manage multi-currency transactions, consolidate entities, and produce statutory and management accounts from Business Central.',
-      Icon: PieChart,
+      image: '/finance.png',
+      title: 'FINANCE',
+      desc: 'Your month-end close takes two weeks because the finance team is reconciling figures across three separate systems, none of which talk to each other.',
     },
     {
       id: 2,
-      type: 'plain-green',
-      label: 'Planning & Forecasting',
-      title: 'Budgeting and forecasting',
-      desc: 'Build connected budgets and rolling forecasts directly from Business Central actuals, with variance tracking and scenario planning.',
-      Icon: BarChart3,
+      image: '/budgeting.png',
+      title: 'BUDGETING',
+      desc: 'You signed off a budget in January. By April, nobody can give you a clear picture of actual spend against that budget without submitting a spreadsheet request.',
     },
     {
       id: 3,
-      type: 'image',
-      image: '/finance.png',
-      label: 'Project Control',
-      title: 'Project costing and job management',
-      desc: 'Track labour, materials, and expenses against each job with real-time work-in-progress reporting and project profitability insights.',
+      image: '/reporting.png',
+      title: 'REPORTING',
+      desc: 'Leadership is making decisions on data that is 30 days old because real-time reporting does not exist. By the time the numbers land, the moment has passed.',
     },
     {
       id: 4,
-      type: 'plain-cream',
-      label: 'Business Intelligence',
-      title: 'Reporting and analytics',
-      desc: 'Create Power BI, Jet Reports, and Solver dashboards built on your Business Central data for operational and executive visibility.',
-      Icon: LayoutDashboard,
-    },
-    {
-      id: 5,
-      type: 'image',
-      image: '/case_migration.png',
-      label: 'ERP Transformation',
-      title: 'ERP migration and system integration',
-      desc: 'Migrate from Sage, Xero, QuickBooks, or legacy systems with clean data mapping, validation, and reporting continuity.',
+      image: '/growth.png',
+      title: 'GROWTH',
+      desc: 'You are growing. New entities, new cost centres, new markets. Your current system was not built for this, and the cracks are starting to show.',
     },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
+      // Disable calculations on mobile/tablet and reset transform
       if (window.innerWidth < 992) {
         setTranslateX(0);
         return;
@@ -67,20 +52,24 @@ const Services = () => {
       const sectionHeight = rect.height;
       const viewportHeight = window.innerHeight;
 
+      // Scrollable distance within the parent section
       const scrollableDist = sectionHeight - viewportHeight;
       if (scrollableDist <= 0) return;
 
+      // Progress ranges from 0 (section enters top of screen) to 1 (section exits bottom of screen)
       let progress = -rect.top / scrollableDist;
       progress = Math.max(0, Math.min(progress, 1));
 
+      // Calculate maximum horizontal displacement
       const maxTranslate = track.scrollWidth - container.clientWidth;
 
+      // Translate track based on progress
       setTranslateX(progress * Math.max(0, maxTranslate));
     };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
-    handleScroll();
+    handleScroll(); // Call once initially
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -115,39 +104,25 @@ const Services = () => {
               className="services-track"
               style={{ transform: `translateX(-${translateX}px)` }}
             >
-              {servicesData.map((service) => {
-                const isImage = service.type === 'image';
-                const Icon = service.Icon;
-                
-                return (
-                  <div key={service.id} className={`service-card ${service.type}`}>
-                    {isImage && (
-                      <div className="service-image-wrapper">
-                        <img 
-                          src={service.image} 
-                          alt={service.title} 
-                          className="service-image"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-                    
-                    <div className="card-content">
-                      {!isImage && Icon && (
-                        <div className="icon-box">
-                          <Icon size={22} color={service.type === 'plain-green' ? '#071b24' : '#071b24'} />
-                        </div>
-                      )}
-                      
-                      <div className="card-label">{service.label}</div>
-                      <h3 className="service-card-title">{service.title}</h3>
-                      <p className="service-card-desc">{service.desc}</p>
-                      
-                      <div className="card-link">Explore service &rarr;</div>
-                    </div>
+              {servicesData.map((service) => (
+                <div key={service.id} className="service-card">
+                  <div className="service-image-wrapper">
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="service-image"
+                      loading="lazy"
+                    />
                   </div>
-                );
-              })}
+                  <div className="service-card-content">
+                    <div className="service-card-title-group">
+                      <span className="service-card-dot"></span>
+                      <h3 className="service-card-title">{service.title}</h3>
+                    </div>
+                    <p className="service-card-desc">{service.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
