@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import './CTABanner.css';
 
 const CTABanner = () => {
@@ -37,38 +37,62 @@ const CTABanner = () => {
       className={`cta-split-section ${isVisible ? 'visible' : ''}`}
       id="cta-banner"
     >
-      <div className="cta-split-container">
+      <div className="cta-split-container cta-grid">
         
         {/* Left Panel (Text & Button) */}
-        <div className="cta-text-panel">
+        <div className="cta-text-panel cta-card">
+          <div className="cta-label">
+            Free Business Central Readiness Review
+          </div>
+          
           <h2 className="cta-split-heading">
-            Ready to stop patching systems together?
+            Stop patching systems together. Start running from one source of truth.
           </h2>
+          
           <p className="cta-split-desc">
-            Tell us what is not working. We will tell you whether Business Central can fix it and how we would approach the delivery. No commitment required.
+            Tell us what’s not working. We’ll assess whether Business Central can solve it, what needs to change, and how we would approach the delivery — with no commitment required.
           </p>
+          
+          <div className="cta-points">
+            <div className="cta-point">
+              <CheckCircle2 size={16} color="#d8f56a" />
+              <span>No commitment required</span>
+            </div>
+            <div className="cta-point">
+              <CheckCircle2 size={16} color="#d8f56a" />
+              <span>Clear implementation pathway</span>
+            </div>
+            <div className="cta-point">
+              <CheckCircle2 size={16} color="#d8f56a" />
+              <span>Practical Business Central advice</span>
+            </div>
+          </div>
           
           <a 
             href="https://bloomadvisors.co.uk/contact" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="btn-cta-split"
+            className="cta-button"
           >
-            <div className="btn-cta-icon-box">
-              <ArrowRight size={18} color="#000" strokeWidth={2.5} />
+            <span className="btn-cta-text">Book a Free Consultation</span>
+            <div className="cta-button-icon">
+              <ArrowRight size={18} color="#07111c" strokeWidth={2.5} />
             </div>
-            <span className="btn-cta-text">BOOK FREE CONSULTATION</span>
           </a>
         </div>
 
         {/* Right Panel (Image) */}
-        <div className="cta-image-panel">
+        <div className="cta-image-panel cta-image">
           <img 
             src="/cta_collaboration.png" 
             alt="Business professionals collaborating" 
             className="cta-split-img"
             loading="lazy"
           />
+          <div className="cta-floating-card">
+            <div className="floating-card-title">Business Central Review</div>
+            <div className="floating-card-subtitle">Finance &bull; Reporting &bull; Operations</div>
+          </div>
         </div>
 
       </div>

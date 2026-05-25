@@ -15,87 +15,132 @@
 .cta-split-container {
   max-width: 1280px;
   margin: 0 auto;
-  display: flex;
-  gap: 2rem; /* Gap between the two panels */
+}
+
+/* New Grid Layout */
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.cta-card,
+.cta-image {
+  min-height: 520px;
+  border-radius: 28px;
 }
 
 /* Left Panel */
 .cta-text-panel {
-  flex: 1;
-  background-color: #1a1a1a; /* Dark gray card, distinct from background */
-  border-radius: 1.5rem;
-  padding: 5rem 4rem;
+  background: linear-gradient(135deg, #101820 0%, #07111c 55%, #111827 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+  padding: 4rem 3.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cta-label {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(210, 242, 86, 0.12);
+  color: #d8f56a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 
 .cta-split-heading {
   color: #ffffff;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 3vw, 2.75rem);
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  max-width: 95%;
 }
 
 .cta-split-desc {
   color: #d4d4d8;
   font-size: 1.05rem;
   line-height: 1.6;
-  max-width: 480px;
-  margin-bottom: 3.5rem;
+  max-width: 90%;
+  margin-bottom: 2rem;
+}
+
+/* Trust Points */
+.cta-points {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.cta-point {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 /* Custom Button Styling */
-.btn-cta-split {
-  display: flex;
+.cta-button {
+  display: inline-flex;
   align-items: center;
-  background-color: transparent;
-  border: 1px solid #333333; /* Dark pill border */
-  border-radius: 9999px;
+  gap: 18px;
+  padding: 8px 8px 8px 24px; /* More padding on left, less on right where circle is */
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   text-decoration: none;
-  overflow: hidden;
-  transition: border-color 0.3s ease;
-  padding-right: 1.5rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.btn-cta-split:hover {
-  border-color: #555555;
+.cta-button:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.btn-cta-icon-box {
-  background-color: #d4f285; /* Neon green box/pill */
-  padding: 0.75rem 1.25rem;
+.cta-button-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #d8f56a;
+  color: #07111c;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
-  margin: 4px; /* Inner margin gives the pill-inside-pill look */
-  margin-right: 1.25rem;
   transition: transform 0.3s ease;
 }
 
-.btn-cta-split:hover .btn-cta-icon-box {
-  transform: scale(1.05);
+.cta-button:hover .cta-button-icon {
+  transform: translateX(4px);
 }
 
 .btn-cta-text {
-  color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  /* color and font set in .cta-button */
 }
 
 /* Right Panel */
 .cta-image-panel {
-  flex: 1;
-  border-radius: 1.5rem;
+  position: relative;
   overflow: hidden;
   display: flex;
+  background-color: #05121c; /* Fallback if image doesn't load fast */
 }
 
 .cta-split-img {
@@ -104,17 +149,87 @@
   object-fit: cover;
 }
 
+.cta-image-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 17, 28, 0.02) 0%,
+    rgba(7, 17, 28, 0.5) 100%
+  );
+  z-index: 1;
+}
+
+/* Floating Card */
+.cta-floating-card {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  background: rgba(16, 24, 32, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 24px;
+  border-radius: 16px;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.floating-card-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.floating-card-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
-  .cta-split-container {
-    flex-direction: column;
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .cta-card,
+  .cta-image {
+    min-height: auto;
   }
   
   .cta-text-panel {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
   }
   
   .cta-image-panel {
     height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cta-split-section {
+    padding: 4rem 1.25rem;
+  }
+  
+  .cta-split-heading {
+    font-size: 2rem;
+  }
+  
+  .cta-points {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .cta-floating-card {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 14px 20px;
   }
 }
