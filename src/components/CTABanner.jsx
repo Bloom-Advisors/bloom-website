@@ -1,71 +1,68 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './CTABanner.css';
 
-const CTABanner = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    const currentRef = sectionRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-
+const CTABanner = ({
+  subtitle = "GET STARTED",
+  title = "Ready to Strategize Your Next Move?",
+  desc = "Let's talk about your next milestone—and how to reach it",
+  btnText = "Schedule a Call",
+  btnLink = "/contact",
+  image = "/cta_collaboration.png",
+  personName = "Alex Tran",
+  personRole = "Founder & CEO",
+  personImage = "/expert_1.png"
+}) => {
   return (
-    <section 
-      ref={sectionRef} 
-      className={`cta-split-section ${isVisible ? 'visible' : ''}`}
-      id="cta-banner"
-    >
+    <section className="cta-split-section" id="cta-banner" data-reveal>
       <div className="cta-split-container">
         
-        {/* Left Panel (Text & Button) */}
+        {/* Left Panel (Text & CTA) */}
         <div className="cta-text-panel">
-          <h2 className="cta-split-heading">
-            Ready to stop patching systems together?
-          </h2>
-          <p className="cta-split-desc">
-            Tell us what is not working. We will tell you whether Business Central can fix it and how we would approach the delivery. No commitment required.
-          </p>
-          
-          <a 
-            href="https://bloomadvisors.co.uk/contact" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn-cta-split"
-          >
-            <div className="btn-cta-icon-box">
-              <ArrowRight size={18} color="#000" strokeWidth={2.5} />
+          <div className="cta-text-content">
+            <div className="cta-subtitle">
+              <span className="cta-subtitle-dot"></span>
+              <span className="cta-subtitle-text">{subtitle}</span>
             </div>
-            <span className="btn-cta-text">BOOK FREE CONSULTATION</span>
-          </a>
+            <h2 className="cta-split-heading">{title}</h2>
+            <p className="cta-split-desc">{desc}</p>
+          </div>
+
+          <div className="cta-bottom-bar">
+            <div className="cta-person">
+              <img 
+                src={personImage} 
+                alt={personName} 
+                className="cta-person-img"
+              />
+              <div className="cta-person-info">
+                <span className="cta-person-name">{personName}</span>
+                <span className="cta-person-role">{personRole}</span>
+              </div>
+            </div>
+            {btnLink.startsWith('http') ? (
+              <a 
+                href={btnLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-cta-schedule"
+              >
+                {btnText}
+              </a>
+            ) : (
+              <Link to={btnLink} className="btn-cta-schedule">
+                {btnText}
+              </Link>
+            )}
+          </div>
         </div>
 
         {/* Right Panel (Image) */}
         <div className="cta-image-panel">
           <img 
-            src="/cta_collaboration.png" 
-            alt="Business professionals collaborating" 
+            src={image} 
+            alt="CTA Banner" 
             className="cta-split-img"
             loading="lazy"
           />

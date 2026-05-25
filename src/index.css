@@ -3,6 +3,8 @@
   --bg-dark: #0B1F33;
   --text-white: #ffffff;
   --text-muted: #d0d0d0;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 * {
@@ -10,6 +12,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Manrope', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html, body {
@@ -27,6 +33,115 @@ a {
 
 button {
   font-family: inherit;
+}
+
+/* ===========================
+   GLOBAL SCROLL REVEAL SYSTEM
+   =========================== */
+
+/* Base reveal state - hidden */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+}
+
+/* Revealed state */
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional variants */
+[data-reveal="left"] {
+  transform: translateX(-50px);
+}
+[data-reveal="left"].revealed {
+  transform: translateX(0);
+}
+
+[data-reveal="right"] {
+  transform: translateX(50px);
+}
+[data-reveal="right"].revealed {
+  transform: translateX(0);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.95);
+}
+[data-reveal="scale"].revealed {
+  transform: scale(1);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+[data-reveal="fade"].revealed {
+  transform: none;
+}
+
+/* Stagger delays for children */
+[data-reveal-delay="1"] { transition-delay: 0.1s; }
+[data-reveal-delay="2"] { transition-delay: 0.2s; }
+[data-reveal-delay="3"] { transition-delay: 0.3s; }
+[data-reveal-delay="4"] { transition-delay: 0.4s; }
+[data-reveal-delay="5"] { transition-delay: 0.5s; }
+[data-reveal-delay="6"] { transition-delay: 0.6s; }
+[data-reveal-delay="7"] { transition-delay: 0.7s; }
+[data-reveal-delay="8"] { transition-delay: 0.8s; }
+
+/* Stagger children automatically */
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: 
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+}
+
+[data-reveal-stagger].revealed > *:nth-child(1) { transition-delay: 0.05s; }
+[data-reveal-stagger].revealed > *:nth-child(2) { transition-delay: 0.1s; }
+[data-reveal-stagger].revealed > *:nth-child(3) { transition-delay: 0.15s; }
+[data-reveal-stagger].revealed > *:nth-child(4) { transition-delay: 0.2s; }
+[data-reveal-stagger].revealed > *:nth-child(5) { transition-delay: 0.25s; }
+[data-reveal-stagger].revealed > *:nth-child(6) { transition-delay: 0.3s; }
+
+[data-reveal-stagger].revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   GLOBAL SMOOTH TRANSITIONS
+   =========================== */
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.4s ease;
+}
+
+/* Smooth link/button interactions */
+a, button {
+  transition: all 0.3s var(--ease-out-quart);
+}
+
+/* Page transition wrapper */
+.page-transition {
+  animation: pageIn 0.6s var(--ease-out-expo) forwards;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Premium Split Header (Global) */

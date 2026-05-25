@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, MapPin, Mail, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -38,39 +39,16 @@ const Footer = () => {
     >
       <div className="footer-container">
         
-        {/* Top Section: CTA / Newsletter */}
-        <div className="footer-top">
-          <div className="footer-top-left" style={{ maxWidth: '500px' }}>
-            <h2 className="footer-cta-heading">Book a free<br/>consultation</h2>
-            <p className="footer-cta-desc" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
-              We will ask about your current systems, understand the challenge, and tell you honestly whether Business Central is the right fit. No sales pitch. No obligation.
-            </p>
-            <a href="https://bloomadvisors.co.uk/contact" target="_blank" rel="noopener noreferrer" className="btn-footer-cta">
-              <span>BOOK ONLINE</span>
-              <ArrowRight size={18} />
-            </a>
-          </div>
-          <div className="footer-top-right" style={{ maxWidth: '480px', textAlign: 'left', alignItems: 'flex-start' }}>
-            <h4 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '1.25rem', color: '#09090b', letterSpacing: '-0.01em' }}>What to expect on the call</h4>
-            <ul style={{ paddingLeft: '1.25rem', margin: 0, color: '#52525b', fontSize: '1.05rem', lineHeight: '1.6', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              <li>We will ask about your current systems and where the pain is.</li>
-              <li>We will tell you whether Business Central is the right fit.</li>
-              <li>If it is, we will outline what the implementation would involve and how long it would take.</li>
-              <li>If it is not, we will tell you that too.</li>
-            </ul>
-          </div>
-        </div>
 
-        <hr className="footer-divider" />
 
         {/* Middle Section: Links & Info */}
         <div className="footer-middle">
           
           {/* Brand Column */}
           <div className="footer-col brand-col">
-            <a href="#">
+            <Link to="/">
               <img src="/logo.png" alt="Bloom Advisors" style={{ height: '200px', margin: '-40px 0 -10px -15px', marginBottom: '0.5rem' }} />
-            </a>
+            </Link>
             <p className="footer-brand-desc">
               Independent Dynamics 365 and Solver specialists. We cut through complexity to deliver robust finance, supply chain, and reporting solutions.
             </p>
@@ -80,12 +58,11 @@ const Footer = () => {
           <div className="footer-col nav-col">
             <h4 className="footer-col-title">Navigation</h4>
             <ul className="footer-links">
-              <li><a href="#about-us-section" className="footer-link">Who We Are</a></li>
-              <li><a href="#services" className="footer-link">Services</a></li>
-              <li><a href="#case-studies" className="footer-link">Approach</a></li>
-              <li><a href="#projects" className="footer-link">Projects</a></li>
-              <li><a href="#results" className="footer-link">Modules</a></li>
-              <li><a href="#team" className="footer-link">Our Team</a></li>
+              <li><Link to="/" className="footer-link">Home</Link></li>
+              <li><Link to="/services" className="footer-link">Services</Link></li>
+              <li><Link to="/projects" className="footer-link">Our Work</Link></li>
+              <li><Link to="/about" className="footer-link">About Us</Link></li>
+              <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
             </ul>
           </div>
 

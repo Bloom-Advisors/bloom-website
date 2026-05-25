@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
-  // Lock body scroll when menu is open
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
   useEffect(() => {
-    if (isMenuOpen) {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Lock body scroll only for the mobile dropdown
+  useEffect(() => {
+    if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -16,66 +28,46 @@ const Navbar = () => {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isMenuOpen]);
-
-  const closeMenu = () => setIsMenuOpen(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   return (
     <>
-      <nav className={`navbar ${isScrolled || isMenuOpen ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+      <nav className={`navbar ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''}`}>
         <div className="navbar-logo">
-          <a href="#" onClick={closeMenu}>
+          <Link to="/" onClick={closeMobileMenu}>
             <img src="/logo.png" alt="Bloom Advisors" className="logo-img" />
-          </a>
+          </Link>
         </div>
+
+        {/* Desktop Navigation Links (Center) */}
+        <div className="navbar-links-desktop">
+          <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
+          <Link to="/services" className={location.pathname === '/services' ? 'active' : ''}>Services</Link>
+          <Link to="/projects" className={location.pathname.startsWith('/projects') ? 'active' : ''}>Our Work</Link>
+          <Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About Us</Link>
+          <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link>
+        </div>
+
         <div className="navbar-actions">
-          <button className="btn-consult">BOOK A CONSULTATION</button>
-          <button className="btn-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? (
-              <X size={28} className="menu-icon" />
-            ) : (
-              <Menu size={28} className="menu-icon" />
-            )}
+          <Link to="/contact" className="btn-consult">
+            BOOK A CONSULTATION
+          </Link>
+          
+          {/* Mobile Menu Toggle */}
+          <button className="btn-mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </nav>
-
-      {/* Full-Screen Overlay Menu */}
-      <div className={`menu-overlay ${isMenuOpen ? 'open' : ''}`}>
-        <div className="menu-overlay-content">
-          <ul className="menu-links">
-            <li style={{ '--animation-order': 1 }}>
-              <a href="#about-us-section" onClick={closeMenu}>Who We Are</a>
-            </li>
-            <li style={{ '--animation-order': 2 }}>
-              <a href="#services" onClick={closeMenu}>Services</a>
-            </li>
-            <li style={{ '--animation-order': 3 }}>
-              <a href="#case-studies" onClick={closeMenu}>Approach</a>
-            </li>
-            <li style={{ '--animation-order': 4 }}>
-              <a href="#projects" onClick={closeMenu}>Projects</a>
-            </li>
-            <li style={{ '--animation-order': 5 }}>
-              <a href="#results" onClick={closeMenu}>Modules</a>
-            </li>
-            <li style={{ '--animation-order': 6 }}>
-              <a href="#team" onClick={closeMenu}>Our Team</a>
-            </li>
-          </ul>
+ 
+      {/* Mobile Dropdown Menu */}
+      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-links">
+          <Link to="/" onClick={closeMobileMenu}>Home</Link>
+          <Link to="/services" onClick={closeMobileMenu}>Services</Link>
+          <Link to="/projects" onClick={closeMobileMenu}>Our Work</Link>
+          <Link to="/about" onClick={closeMobileMenu}>About Us</Link>
+          <Link to="/contact" onClick={closeMobileMenu} className="mobile-btn-consult">Book a Consultation</Link>
         </div>
       </div>
     </>

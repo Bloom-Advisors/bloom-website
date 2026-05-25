@@ -1,101 +1,159 @@
 .cta-split-section {
-  background-color: #0B1F33; /* Very dark background to blend with Team section */
+  background-color: #0B1F33;
   padding: 6rem 2rem;
   font-family: 'Manrope', sans-serif;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.cta-split-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .cta-split-container {
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
-  gap: 2rem; /* Gap between the two panels */
+  gap: 1.5rem;
+  min-height: 500px;
 }
 
 /* Left Panel */
 .cta-text-panel {
   flex: 1;
-  background-color: #1a1a1a; /* Dark gray card, distinct from background */
-  border-radius: 1.5rem;
-  padding: 5rem 4rem;
+  background: linear-gradient(135deg, #2a2a1a 0%, #3d3d1a 40%, #4a4a20 100%);
+  padding: 3.5rem 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
 }
 
+.cta-text-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at bottom left, rgba(180, 180, 50, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-text-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Subtitle */
+.cta-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-subtitle-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #c8b84d;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.cta-subtitle-text {
+  color: #c8b84d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Heading */
 .cta-split-heading {
   color: #ffffff;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
 }
 
+/* Description */
 .cta-split-desc {
-  color: #d4d4d8;
-  font-size: 1.05rem;
+  color: #b8b8a0;
+  font-size: 1rem;
   line-height: 1.6;
-  max-width: 480px;
-  margin-bottom: 3.5rem;
+  max-width: 420px;
 }
 
-/* Custom Button Styling */
-.btn-cta-split {
+/* Bottom Bar - Person + Button */
+.cta-bottom-bar {
   display: flex;
   align-items: center;
-  background-color: transparent;
-  border: 1px solid #333333; /* Dark pill border */
-  border-radius: 9999px;
-  text-decoration: none;
-  overflow: hidden;
-  transition: border-color 0.3s ease;
-  padding-right: 1.5rem;
+  justify-content: space-between;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(200, 184, 77, 0.15);
 }
 
-.btn-cta-split:hover {
-  border-color: #555555;
-}
-
-.btn-cta-icon-box {
-  background-color: #d4f285; /* Neon green box/pill */
-  padding: 0.75rem 1.25rem;
+.cta-person {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  margin: 4px; /* Inner margin gives the pill-inside-pill look */
-  margin-right: 1.25rem;
-  transition: transform 0.3s ease;
+  gap: 0.75rem;
 }
 
-.btn-cta-split:hover .btn-cta-icon-box {
-  transform: scale(1.05);
+.cta-person-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(200, 184, 77, 0.3);
 }
 
-.btn-cta-text {
+.cta-person-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-person-name {
   color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.cta-person-role {
+  color: #9a9a80;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* Schedule Button */
+.btn-cta-schedule {
+  display: inline-block;
+  background-color: #d4e05e;
+  color: #1a1a1a;
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-cta-schedule:hover {
+  background-color: #e0ec6a;
+  transform: translateY(-1px);
 }
 
 /* Right Panel */
 .cta-image-panel {
   flex: 1;
+  display: flex;
+  position: relative;
   border-radius: 1.5rem;
   overflow: hidden;
-  display: flex;
 }
 
 .cta-split-img {
@@ -108,13 +166,38 @@
 @media (max-width: 992px) {
   .cta-split-container {
     flex-direction: column;
+    min-height: auto;
   }
   
   .cta-text-panel {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
   }
   
   .cta-image-panel {
-    height: 400px;
+    height: 350px;
+  }
+
+  .cta-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .cta-split-section {
+    padding: 4rem 1rem;
+  }
+
+  .cta-text-panel {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cta-image-panel {
+    height: 280px;
+  }
+
+  .cta-split-heading {
+    font-size: 1.75rem;
   }
 }

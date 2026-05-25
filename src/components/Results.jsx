@@ -1,162 +1,49 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import './Results.css';
 
 const Results = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    const currentRef = sectionRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
+  const capabilities = [
+    {
+      title: "Financial management & consolidation",
+      desc: "Streamline your financial close and handle multi-currency transactions with ease. Consolidate data across all your entities and generate compliance-ready statutory accounts instantly."
+    },
+    {
+      title: "Budgeting & forecasting",
+      desc: "Design dynamic, multi-dimensional budgets connected directly to live actuals. Track real-time variances and run complex scenario modeling natively within Solver xFP&A."
+    },
+    {
+      title: "Project costing & job management",
+      desc: "Gain precise control over project profitability. Monitor labor, materials, and expenses with real-time WIP reporting that ties directly back to your core financial ledger."
+    },
+    {
+      title: "Reporting & analytics",
+      desc: "Transform raw data into actionable insights using custom Power BI and Jet Reports dashboards. Deliver secure, automated executive summaries and operational KPIs across your organization."
+    },
+    {
+      title: "ERP migration & system integration",
+      desc: "Transition smoothly from legacy systems like Sage or Xero. We meticulously map, cleanse, and validate your historical data to guarantee seamless reporting continuity from day one."
     }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
+  ];
 
   return (
     <section 
-      ref={sectionRef} 
-      className={`results-section ${isVisible ? 'visible' : ''}`}
+      className="capabilities-section"
       id="results"
     >
-      <div className="results-container">
+      <div className="container capabilities-container">
         
-        {/* Split Header */}
-        <div className="section-header-split">
-          <div className="sh-left">
-            <div className="badge badge-left">
-              <span className="dot"></span> MODULES & IMPACT
-            </div>
-            <h2 className="section-heading">By<br/><span className="text-muted">Capability</span></h2>
-          </div>
-          <div className="sh-right">
-            <p className="section-subheading">
-              A practical breakdown of the modules we implement and extend.
-            </p>
-          </div>
+        <div className="cap-header-center" data-reveal>
+          <h2 className="cap-title">By capability</h2>
+          <p className="cap-subtitle">A practical breakdown of the modules we implement and extend.</p>
         </div>
 
-        {/* Staggered Masonry Grid */}
-        <div className="results-grid">
-          
-          {/* Column 1 */}
-          <div className="results-col col-left">
-            {/* Card 1: Clickable Text Card (Beige Background) */}
-            <a 
-              href="https://bloomadvisors.co.uk/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="results-card card-text card-beige results-card-link"
-            >
-              <h3 className="card-custom-title">Financial management and consolidation</h3>
-              <p className="card-paragraph">
-                Automate your close, manage multi-currency transactions, consolidate across entities, and produce statutory and management accounts directly from Business Central.
-              </p>
-            </a>
-            
-            {/* Card 2: Clickable Image Card with Text Overlay */}
-            <a 
-              href="https://bloomadvisors.co.uk/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="results-card card-image-only results-card-link"
-            >
-              <img 
-                src="/results_operations.png" 
-                alt="Budgeting and forecasting" 
-                className="results-bg-img"
-                loading="lazy"
-              />
-              <div className="overlay-gradient"></div>
-              <div className="overlay-content overlay-content-simple">
-                <h3 className="card-overlay-title">Budgeting and forecasting</h3>
-                <p className="card-overlay-desc">
-                  Build multi-dimensional budgets and rolling forecasts in Solver xFP&A, connected to live Business Central actuals. Track variances automatically and model scenarios without leaving the platform.
-                </p>
-              </div>
-            </a>
-          </div>
-
-          {/* Column 2 */}
-          <div className="results-col col-middle">
-            {/* Card 3: Project costing and job management (Tall Clickable Image Background Card with Text Overlay) */}
-            <a 
-              href="https://bloomadvisors.co.uk/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="results-card card-tall-overlay results-card-link"
-            >
-              <img 
-                src="/results_team.png" 
-                alt="Project costing and job management" 
-                className="results-bg-img"
-                loading="lazy"
-              />
-              <div className="overlay-gradient"></div>
-              <div className="overlay-content">
-                <h3 className="card-overlay-title tall-title">Project costing and job management</h3>
-                <p className="card-paragraph overlay-paragraph">
-                  Track labour, materials, and expenses against jobs, with real-time WIP reporting and profitability analysis by project, phase, or team, connected to your financial ledger.
-                </p>
-              </div>
-            </a>
-          </div>
-
-          {/* Column 3 */}
-          <div className="results-col col-right">
-            {/* Card 4: Clickable Image Card with Text Overlay */}
-            <a 
-              href="https://bloomadvisors.co.uk/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="results-card card-image-only results-card-link"
-            >
-              <img 
-                src="/results_consulting.png" 
-                alt="Reporting and analytics" 
-                className="results-bg-img"
-                loading="lazy"
-              />
-              <div className="overlay-gradient"></div>
-              <div className="overlay-content overlay-content-simple">
-                <h3 className="card-overlay-title">Reporting and analytics</h3>
-                <p className="card-overlay-desc">
-                  Power BI dashboards, Jet Reports, and Solver reporting templates built on your BC data. From operational KPIs to executive financial summaries, with scheduled refresh and row-level security.
-                </p>
-              </div>
-            </a>
-            
-            {/* Card 5: Clickable Text Card (Pastel Lime Green Background) */}
-            <a 
-              href="https://bloomadvisors.co.uk/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="results-card card-text card-lime results-card-link"
-            >
-              <h3 className="card-custom-title">ERP migration and system integration</h3>
-              <p className="card-paragraph">
-                Structured migration from Sage, Xero, QuickBooks, or bespoke legacy systems. Data mapped, cleansed, and validated to ensure accuracy and reporting continuity from day one post go-live.
-              </p>
-            </a>
-          </div>
-
+        <div className="cap-grid">
+          {capabilities.map((item, index) => (
+            <div className="cap-card" key={index} data-reveal data-reveal-delay={`${index + 1}`}>
+              <h3 className="cap-card-title">{item.title}</h3>
+              <p className="cap-card-desc">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
       </div>
