@@ -81,3 +81,21 @@ button {
     gap: 2rem;
   }
 }
+
+@media (max-width: 576px) {
+  .section-heading {
+    font-size: 2.25rem;
+  }
+  
+  .section-subheading {
+    font-size: 1.05rem;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+}
