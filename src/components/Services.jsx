@@ -113,14 +113,14 @@ const Services = () => {
             <div 
               ref={trackRef} 
               className="services-track"
-              style={{ transform: \`translateX(-\${translateX}px)\` }}
+              style={{ transform: `translateX(-${translateX}px)` }}
             >
               {servicesData.map((service) => {
                 const isImage = service.type === 'image';
                 const Icon = service.Icon;
                 
                 return (
-                  <div key={service.id} className={\`service-card \${service.type}\`}>
+                  <div key={service.id} className={`service-card ${service.type}`}>
                     {isImage && (
                       <div className="service-image-wrapper">
                         <img 
