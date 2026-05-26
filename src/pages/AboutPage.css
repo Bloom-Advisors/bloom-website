@@ -2,11 +2,10 @@
   background-color: #ffffff;
 }
 
-/* Hero Section */
 .about-hero {
   padding: 16rem 0 10rem 0; /* Matches the tall, impressive look */
   background-color: #060e17;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/about_team_bg.png');
+  background-image: url('/about_team_bg.png');
   background-size: cover;
   background-position: center;
   color: #ffffff;
@@ -14,8 +13,40 @@
   overflow: hidden;
 }
 
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+}
+
+.about-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+
 .about-hero-content {
   max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .about-breadcrumb {

@@ -7,33 +7,33 @@ const ServicesPage = () => {
   const services = [
     {
       id: 1,
-      image: '/case_bc_impl.png',
+      image: '/results_consulting.png',
       title: 'BC Implementation',
       desc: 'Chart of accounts, financial dimensions, periods, and integrations. Configured to your business, not a generic template.'
     },
     {
       id: 2,
-      image: '/case_bi_report.png',
+      image: '/results_team.png',
       title: 'BI and Reporting',
       desc: 'Power BI dashboards, Jet Reports, and Solver reporting layers built directly on your Business Central data.'
     },
     {
       id: 3,
-      image: '/case_fpa.png',
+      image: '/results_operations.png',
       title: 'Financial Planning and Analysis',
       desc: 'Multi-quarter budgeting and forecasting models in Solver xFP&A, connected to live BC actuals for real-time variance tracking.'
     },
     {
       id: 4,
-      image: '/case_migration.png',
+      image: '/understanding_bg.png',
       title: 'ERP Data Migration',
       desc: 'Structured migration from Sage, Xero, QuickBooks, and other legacy systems. Data mapped, cleansed, and validated before go-live.'
     },
     {
       id: 5,
-      image: '/case_subcontract.png',
+      image: '/cta_collaboration.png',
       title: 'Subcontracting',
-      desc: 'Available as an experienced Dynamics 365 Business Central and Solver xFP&A subcontractor for Microsoft partners, ERP consultancies, and Solver implementation firms. We integrate directly into your delivery team to provide certified specialist capacity on active client engagements, covering BC configuration, Solver planning model builds, reporting layer development, and data engineering.'
+      desc: 'Available as ad-hoc resources for ERP consultancies. We integrate directly into your delivery team to provide specialist capacity.'
     }
   ];
 
@@ -51,7 +51,7 @@ const ServicesPage = () => {
               <span className="sp-subtitle">Business Decisions</span>
             </h1>
             <p className="sp-description hero-animate delay-3">
-              We provide structured, objective consulting services designed to help leaders gain clarity, reduce risk, and make better decisions.
+              Available as ad-hoc resources for ERP consultancies. We integrate directly into your delivery team to provide specialist capacity.
             </p>
           </div>
         </div>

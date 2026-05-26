@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
-import FAQ from '../components/FAQ';
 import CTABanner from '../components/CTABanner';
 
 const Home = () => {
@@ -11,7 +10,6 @@ const Home = () => {
       <Hero />
       <About />
       <Services />
-      <FAQ />
       <CTABanner />
     </div>
   );

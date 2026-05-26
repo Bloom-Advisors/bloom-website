@@ -6,13 +6,13 @@ const capabilitiesData = [
     id: 1,
     title: 'Financial Management & Consolidation',
     description: 'Automate your close, manage multi-currency transactions, consolidate across entities, and produce statutory and management accounts directly from Business Central.',
-    image: '/finance.png'
+    image: '/results_consulting.png'
   },
   {
     id: 2,
     title: 'Budgeting & Forecasting',
     description: 'Build multi-dimensional budgets and rolling forecasts in Solver xFP&A, connected to live Business Central actuals. Track variances automatically and model scenarios without leaving the platform.',
-    image: '/budgeting.png'
+    image: '/results_operations.png'
   },
   {
     id: 3,
@@ -24,13 +24,13 @@ const capabilitiesData = [
     id: 4,
     title: 'Reporting & Analytics',
     description: 'Power BI dashboards, Jet Reports, and Solver reporting templates built on your BC data. From operational KPIs to executive financial summaries, with scheduled refresh and row-level security.',
-    image: '/reporting.png'
+    image: '/results_team.png'
   },
   {
     id: 5,
     title: 'ERP Migration & System Integration',
     description: 'Structured migration from Sage, Xero, QuickBooks, or bespoke legacy systems. Data mapped, cleansed, and validated to ensure accuracy and reporting continuity from day one post go-live.',
-    image: '/growth.png'
+    image: '/about_team_bg.png'
   }
 ];
 

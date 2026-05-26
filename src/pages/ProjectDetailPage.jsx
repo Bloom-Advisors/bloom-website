@@ -34,7 +34,7 @@ const ProjectDetailPage = () => {
       <section 
         className="pdp-hero-section"
         style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('${project.image}') center / cover no-repeat`
+          backgroundImage: `url('${project.image}')`
         }}
       >
         <div className="container">

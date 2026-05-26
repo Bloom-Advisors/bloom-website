@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ onBookConsult }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -30,9 +30,15 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
+  const isDarkHeroPage = 
+    location.pathname === '/' ||
+    location.pathname === '/services' || 
+    location.pathname.startsWith('/projects') || 
+    location.pathname === '/about';
+
   return (
     <>
-      <nav className={`navbar ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''}`}>
+      <nav className={`navbar ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''} ${isDarkHeroPage ? 'dark-hero-page' : ''}`}>
         <div className="navbar-logo">
           <Link to="/" onClick={closeMobileMenu}>
             <img src="/logo.png" alt="Bloom Advisors" className="logo-img" />
@@ -49,9 +55,9 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-actions">
-          <Link to="/contact" className="btn-consult">
+          <button className="btn-consult" onClick={onBookConsult}>
             BOOK A CONSULTATION
-          </Link>
+          </button>
           
           {/* Mobile Menu Toggle */}
           <button className="btn-mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -63,11 +69,12 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-menu-links">
-          <Link to="/" onClick={closeMobileMenu}>Home</Link>
-          <Link to="/services" onClick={closeMobileMenu}>Services</Link>
-          <Link to="/projects" onClick={closeMobileMenu}>Our Work</Link>
-          <Link to="/about" onClick={closeMobileMenu}>About Us</Link>
-          <Link to="/contact" onClick={closeMobileMenu} className="mobile-btn-consult">Book a Consultation</Link>
+          <Link to="/" onClick={closeMobileMenu} className={location.pathname === '/' ? 'active' : ''}>Home</Link>
+          <Link to="/services" onClick={closeMobileMenu} className={location.pathname === '/services' ? 'active' : ''}>Services</Link>
+          <Link to="/projects" onClick={closeMobileMenu} className={location.pathname.startsWith('/projects') ? 'active' : ''}>Our Work</Link>
+          <Link to="/about" onClick={closeMobileMenu} className={location.pathname === '/about' ? 'active' : ''}>About Us</Link>
+          <Link to="/contact" onClick={closeMobileMenu} className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link>
+          <button onClick={() => { closeMobileMenu(); onBookConsult(); }} className="mobile-btn-consult">Book a Consultation</button>
         </div>
       </div>
     </>

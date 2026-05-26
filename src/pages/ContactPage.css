@@ -26,17 +26,34 @@
 
 .contact-hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.82);
+  inset: 0;
   z-index: 1;
+}
+
+.contact-hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+}
+
+.contact-hero-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
 }
 
 .contact-hero-container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -367,42 +384,77 @@ a.sidebar-link-item:hover {
   color: #0f172a;
 }
 
-/* Dark Sidebar Card */
-.sidebar-card-dark {
-  background-color: #0B1F33;
-  border-color: #0B1F33;
+/* Premium What to Expect Card */
+.expect-card-premium {
+  background: #ffffff;
+  border: 1px solid #e8eaed;
+  border-radius: 1.25rem;
+  padding: 3rem 2.25rem;
 }
 
-.sidebar-card-dark h3 {
-  color: #ffffff;
+.expect-card-premium h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
 }
 
-.expect-list {
+.expect-list-premium {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
-.expect-item {
+.expect-item-premium {
   display: flex;
-  align-items: flex-start;
-  gap: 0.9rem;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background-color: #f8fafb;
+  border-radius: 14px;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.expect-number {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
+.expect-item-premium:hover {
+  background-color: #ffffff;
+  border-color: rgba(95, 167, 119, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transform: translateX(4px);
+}
+
+.expect-num-badge {
+  background-color: rgba(95, 167, 119, 0.08);
   color: var(--brand-primary);
-  padding-top: 0.15rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-weight: 800;
+  font-size: 0.85rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  border: 1px solid rgba(95, 167, 119, 0.15);
+  transition: all 0.3s ease;
 }
 
-.expect-item p {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.6);
+.expect-item-premium:hover .expect-num-badge {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+  transform: scale(1.05);
+}
+
+.expect-text-premium {
+  font-size: 0.95rem;
+  color: #475569;
   line-height: 1.5;
   margin: 0;
+  font-weight: 500;
+  text-align: left;
 }
 
 /* ===== Responsive ===== */
@@ -444,3 +496,76 @@ a.sidebar-link-item:hover {
     padding: 3rem 1rem 4rem;
   }
 }
+
+/* ===== Horizontal Contact Info Banner ===== */
+.contact-info-banner-container {
+  max-width: 1200px;
+  margin: 3.5rem auto 0;
+  width: 100%;
+}
+
+.contact-info-banner-card {
+  background-color: #0B1F33;
+  border-radius: 1.25rem;
+  padding: 3rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.info-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.info-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand-primary);
+  margin-bottom: 0.75rem;
+}
+
+.info-value {
+  font-size: 1.15rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+a.info-value:hover {
+  color: var(--brand-primary);
+}
+
+.info-divider {
+  width: 1px;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  margin: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .contact-info-banner-card {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem;
+  }
+  
+  .info-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+  }
+  
+  .info-value {
+    font-size: 1.05rem;
+  }
+}
+

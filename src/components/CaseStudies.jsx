@@ -15,7 +15,7 @@ const CaseStudies = () => {
       desc: 'Chart of accounts, financial dimensions, periods, and integrations. Configured to your business, not a generic template.',
       focus: 'Dynamics 365 BC',
       scope: 'Core ERP Setup',
-      image: '/case_bc_impl.png',
+      image: '/results_consulting.png',
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const CaseStudies = () => {
       desc: 'Power BI dashboards, Jet Reports, and Solver reporting layers built directly on your Business Central data.',
       focus: 'Power BI & Jet Reports',
       scope: 'Reporting & Analytics',
-      image: '/case_bi_report.png',
+      image: '/results_team.png',
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const CaseStudies = () => {
       desc: 'Multi-quarter budgeting and forecasting models in Solver xFP&A, connected to live BC actuals for real-time variance tracking.',
       focus: 'Solver xFP&A',
       scope: 'Budgeting & Forecasts',
-      image: '/case_fpa.png',
+      image: '/results_operations.png',
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ const CaseStudies = () => {
       desc: 'Structured migration from Sage, Xero, QuickBooks, and other legacy systems. Data mapped, cleansed, and validated before go-live.',
       focus: 'Legacy to BC',
       scope: 'Data Engineering',
-      image: '/case_migration.png',
+      image: '/understanding_bg.png',
     },
     {
       id: 5,
@@ -47,7 +47,7 @@ const CaseStudies = () => {
       desc: 'Available as an experienced Dynamics 365 Business Central and Solver xFP&A subcontractor for Microsoft partners, ERP consultancies, and Solver implementation firms. We integrate directly into your delivery team to provide certified specialist capacity on active client engagements, covering BC configuration, Solver planning model builds, reporting layer development, and data engineering.',
       focus: 'Subcontract Capacity',
       scope: 'Consultant Augmentation',
-      image: '/case_subcontract.png',
+      image: '/cta_collaboration.png',
     }
   ];
 

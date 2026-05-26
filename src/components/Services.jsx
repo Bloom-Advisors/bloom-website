@@ -9,7 +9,7 @@ const Services = () => {
       id: 1,
       num: '01',
       tag: 'FINANCIAL EFFICIENCY',
-      image: '/finance.png',
+      image: '/results_consulting.png',
       title: 'Automated Financial Consolidation',
       desc: 'Reconciling data across siloed systems extends your month-end close to weeks. We integrate your accounting pipelines to deliver automated, instant financial consolidation and zero manual reconciliation.',
       impact: 'Reduces close time by up to 80% while ensuring auditable data integrity.'
@@ -18,7 +18,7 @@ const Services = () => {
       id: 2,
       num: '02',
       tag: 'DYNAMIC FORECASTING',
-      image: '/budgeting.png',
+      image: '/results_operations.png',
       title: 'Continuous Planning & Budgeting',
       desc: 'Static annual budgets become obsolete by Q2. We connect live actuals directly to your forecasts, giving leaders real-time visibility into variance without manual spreadsheet requests.',
       impact: 'Enables rolling forecasts and continuous variance analysis on demand.'
@@ -27,7 +27,7 @@ const Services = () => {
       id: 3,
       num: '03',
       tag: 'REAL-TIME INSIGHTS',
-      image: '/reporting.png',
+      image: '/results_team.png',
       title: 'Always-On Executive Reporting',
       desc: 'Making strategic decisions on 30-day-old reports means missing critical market opportunities. We build automated executive dashboards that serve live, operational KPIs daily.',
       impact: 'Brings report latency down from weeks to minutes.'
@@ -36,7 +36,7 @@ const Services = () => {
       id: 4,
       num: '04',
       tag: 'SCALABLE ARCHITECTURE',
-      image: '/growth.png',
+      image: '/about_team_bg.png',
       title: 'Multi-Entity Expansion & Scaling',
       desc: 'Scaling operations across new entities and cost centers exposes the limitations of legacy tools. We configure robust architectures built to support global multi-company expansion seamlessly.',
       impact: 'Supports multi-currency, multi-region setups without core system strain.'

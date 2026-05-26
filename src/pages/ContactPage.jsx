@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight, Check, Clock, MessageCircle } from 'lucide-react';
-import FAQ from '../components/FAQ';
+import CTABanner from '../components/CTABanner';
 import './ContactPage.css';
 
 const ContactPage = () => {
@@ -39,23 +39,12 @@ const ContactPage = () => {
         <div className="contact-hero-overlay"></div>
         <div className="contact-hero-container">
           <div className="contact-hero-content">
-            <span className="contact-hero-badge hero-animate delay-1">CONTACT US</span>
             <h1 className="contact-hero-heading hero-animate delay-2">
               Let's build something <span className="highlight">that works.</span>
             </h1>
             <p className="contact-hero-text hero-animate delay-3">
               Whether you're ready to start or just exploring options, we're here to help you make the right decision.
             </p>
-            <div className="contact-hero-pills hero-animate delay-4">
-              <div className="hero-pill">
-                <Clock size={14} />
-                <span>Response within 24hrs</span>
-              </div>
-              <div className="hero-pill">
-                <MessageCircle size={14} />
-                <span>Free consultation</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -158,59 +147,25 @@ const ContactPage = () => {
           {/* Sidebar */}
           <div className="contact-sidebar" data-reveal data-reveal-delay="2">
             
-            {/* Contact Info Card */}
-            <div className="sidebar-card">
-              <h3>Direct Contact</h3>
-              <div className="sidebar-links">
-                <a href="mailto:kwesi@bloomadvisors.uk" className="sidebar-link-item">
-                  <div className="sidebar-link-icon">
-                    <Mail size={16} />
-                  </div>
-                  <div className="sidebar-link-text">
-                    <span className="sidebar-link-label">Email</span>
-                    <span className="sidebar-link-value">kwesi@bloomadvisors.uk</span>
-                  </div>
-                </a>
-                <a href="tel:+447990774379" className="sidebar-link-item">
-                  <div className="sidebar-link-icon">
-                    <Phone size={16} />
-                  </div>
-                  <div className="sidebar-link-text">
-                    <span className="sidebar-link-label">Phone</span>
-                    <span className="sidebar-link-value">+44 (0) 7990 774379</span>
-                  </div>
-                </a>
-                <div className="sidebar-link-item">
-                  <div className="sidebar-link-icon">
-                    <MapPin size={16} />
-                  </div>
-                  <div className="sidebar-link-text">
-                    <span className="sidebar-link-label">Address</span>
-                    <span className="sidebar-link-value">6th Floor, 37 Lombard Street, London, EC3V 9BQ</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* What to Expect Card */}
-            <div className="sidebar-card sidebar-card-dark">
+            <div className="sidebar-card expect-card-premium">
               <h3>What to expect</h3>
-              <div className="expect-list">
-                <div className="expect-item">
-                  <span className="expect-number">01</span>
-                  <p>We ask about your current systems and pain points</p>
+              <div className="expect-list-premium">
+                <div className="expect-item-premium">
+                  <span className="expect-num-badge">01</span>
+                  <p className="expect-text-premium">We ask about your current systems and pain points</p>
                 </div>
-                <div className="expect-item">
-                  <span className="expect-number">02</span>
-                  <p>We assess whether Business Central is the right fit</p>
+                <div className="expect-item-premium">
+                  <span className="expect-num-badge">02</span>
+                  <p className="expect-text-premium">We assess whether Business Central is the right fit</p>
                 </div>
-                <div className="expect-item">
-                  <span className="expect-number">03</span>
-                  <p>We outline the implementation approach and timeline</p>
+                <div className="expect-item-premium">
+                  <span className="expect-num-badge">03</span>
+                  <p className="expect-text-premium">We outline the implementation approach and timeline</p>
                 </div>
-                <div className="expect-item">
-                  <span className="expect-number">04</span>
-                  <p>If it's not the right fit, we'll tell you honestly</p>
+                <div className="expect-item-premium">
+                  <span className="expect-num-badge">04</span>
+                  <p className="expect-text-premium">If it's not the right fit, we'll tell you honestly</p>
                 </div>
               </div>
             </div>
@@ -218,10 +173,40 @@ const ContactPage = () => {
           </div>
 
         </div>
+
+        {/* Full-width Horizontal Contact Info Banner */}
+        <div className="contact-info-banner-container" data-reveal data-reveal-delay="3">
+          <div className="contact-info-banner-card">
+            <div className="info-column">
+              <span className="info-label">Email</span>
+              <a href="mailto:kwesi@bloomadvisors.uk" className="info-value">kwesi@bloomadvisors.uk</a>
+            </div>
+            <div className="info-divider"></div>
+            <div className="info-column">
+              <span className="info-label">Phone</span>
+              <a href="tel:+447990774379" className="info-value">+44 (0) 7990 774379</a>
+            </div>
+            <div className="info-divider"></div>
+            <div className="info-column">
+              <span className="info-label">Address</span>
+              <span className="info-value">6th Floor, 37 Lombard Street, London, EC3V 9BQ</span>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQ />
+      {/* ─── CTA BANNER ─── */}
+      <CTABanner
+        subtitle="BOOK A CONSULTATION"
+        title="Prefer to speak with us directly?"
+        desc="Schedule a free 30-minute discovery call with our team. No obligation — just a conversation about your goals."
+        btnText="Book a Free Call"
+        btnLink="/contact"
+        image="/cta_collaboration.png"
+        personName="Kwesi Bloom"
+        personRole="Principal Advisor"
+        personImage="/expert_1.png"
+      />
 
     </div>
   );

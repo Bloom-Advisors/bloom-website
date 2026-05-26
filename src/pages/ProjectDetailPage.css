@@ -18,20 +18,49 @@
   padding: 0 2rem;
 }
 
-/* Hero Section */
 .pdp-hero-section {
   padding: 16rem 0 10rem 0; /* Equal height padding */
   background-color: #060e17;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   color: #ffffff;
   position: relative;
   overflow: hidden;
 }
 
+.pdp-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+}
+
+.pdp-hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.pdp-hero-section .container {
+  position: relative;
+  z-index: 3;
+}
+
+
 .pdp-hero-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .about-breadcrumb {
@@ -91,10 +120,11 @@
 
 .pdp-hero-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: 6rem;
-  gap: 4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  gap: 1.5rem;
 }
 
 .pdp-meta-inline {
@@ -243,8 +273,8 @@
 @media (max-width: 992px) {
   .pdp-hero-footer {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+    align-items: center;
+    gap: 1.5rem;
   }
   .pdp-content-row {
     flex-direction: column;

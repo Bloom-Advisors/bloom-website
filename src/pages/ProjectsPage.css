@@ -2,11 +2,10 @@
   background-color: #ffffff;
 }
 
-/* Hero */
 .pp-hero {
-  padding: 16rem 0 10rem 0; /* Consistent height */
+  padding: 16rem 0 10rem 0; /* Consistent height matching Services Page */
   background-color: #060e17;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/main_hero_bg.png');
+  background-image: url('/homepage_hero_team.png');
   background-size: cover;
   background-position: center;
   color: #ffffff;
@@ -14,8 +13,40 @@
   overflow: hidden;
 }
 
+.pp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+}
+
+.pp-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.pp-hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+
 .pp-hero-content {
   max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .about-breadcrumb {

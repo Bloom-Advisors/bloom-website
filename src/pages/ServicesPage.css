@@ -11,11 +11,10 @@
   padding: 0 2rem;
 }
 
-/* Hero Section */
 .sp-hero {
   padding: 16rem 0 10rem 0; /* Consistent height */
   background-color: #060e17;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/decision_support.png');
+  background-image: url('/decision_support.png');
   background-size: cover;
   background-position: center;
   color: #ffffff;
@@ -23,8 +22,40 @@
   overflow: hidden;
 }
 
+.sp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+}
+
+.sp-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.sp-hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+
 .sp-hero-content {
   max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .about-breadcrumb {
