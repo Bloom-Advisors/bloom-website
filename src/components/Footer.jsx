@@ -46,8 +46,8 @@ const Footer = () => {
           
           {/* Brand Column */}
           <div className="footer-col brand-col">
-            <Link to="/">
-              <img src="/logo.png" alt="Bloom Advisors" style={{ height: '200px', margin: '-40px 0 -10px -15px', marginBottom: '0.5rem' }} />
+            <Link to="/" className="footer-logo-link">
+              <img src="/logo.png" alt="Bloom Advisors" className="footer-logo-img" />
             </Link>
             <p className="footer-brand-desc">
               Independent Dynamics 365 and Solver specialists. We cut through complexity to deliver robust finance, supply chain, and reporting solutions.

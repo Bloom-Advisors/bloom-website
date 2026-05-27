@@ -5,14 +5,9 @@
   min-height: 100vh;
 }
 
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
 .sp-hero {
-  padding: 16rem 0 10rem 0; /* Consistent height */
+  padding-block: clamp(110px, 12vw, 200px) clamp(60px, 8vw, 120px);
+  min-height: clamp(420px, 60vh, 680px);
   background-color: #060e17;
   background-image: url('/decision_support.png');
   background-size: cover;
@@ -75,7 +70,7 @@
 }
 
 .sp-title {
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -88,7 +83,7 @@
 }
 
 .sp-description {
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
   color: #94a3b8; /* Slate 400 */
   line-height: 1.6;
 }
@@ -124,7 +119,7 @@
 
 /* Intro Section */
 .sp-intro-section {
-  padding-top: 8rem;
+  padding-top: clamp(4rem, 8vw, 8rem);
   padding-bottom: 2rem;
 }
 
@@ -132,14 +127,14 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 4rem;
-  padding-bottom: 4rem;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
   border-bottom: 1px solid #e4e4e7;
 }
 
 .sp-intro-title {
   flex: 1;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   color: #071421;
   line-height: 1.1;
@@ -150,7 +145,7 @@
 
 .sp-intro-text {
   flex: 1;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   color: #52525b;
   line-height: 1.7;
   margin: 0;
@@ -166,20 +161,18 @@
 
 /* Grid Section */
 .sp-grid-section {
-  padding-top: 6rem;
-  padding-bottom: 8rem;
+  padding-block: clamp(3rem, 6vw, 6rem) clamp(4rem, 8vw, 8rem);
 }
 
 .sp-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 64px 24px; /* larger vertical gap, smaller horizontal gap to make cards wider */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 64px) clamp(20px, 2vw, 32px);
 }
 
 @media (max-width: 1100px) {
   .sp-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -227,7 +220,7 @@
 }
 
 .card-title {
-  font-size: 1.5rem; /* increased from 1.35rem */
+  font-size: clamp(1.25rem, 3vw, 1.5rem); /* increased from 1.35rem */
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: -0.02em;

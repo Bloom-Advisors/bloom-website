@@ -41,9 +41,9 @@
 }
 
 .logo-img {
-  height: 135px;
+  height: 165px;
   width: auto;
-  margin: -40px 0;
+  margin: -55px 0;
   transition: filter 0.3s ease;
 }
 
@@ -135,41 +135,43 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  background-color: rgba(7, 20, 33, 0.95); /* Deep premium blue with opacity */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  height: auto;
+  min-height: 40vh;
+  background-color: #ffffff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  padding-top: 100px; /* clear the navbar */
+  padding-bottom: 3rem;
   z-index: 90;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
+  transform: translateY(-100%);
   pointer-events: none;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-menu-overlay.open {
-  opacity: 1;
+  transform: translateY(0);
   pointer-events: auto;
 }
 
 .mobile-menu-links {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.5rem;
   text-align: center;
   width: 100%;
   max-width: 320px;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 
 .mobile-menu-links a {
-  color: #ffffff;
-  font-size: 2.2rem;
-  font-weight: 700;
+  color: #0f172a;
+  font-size: 1.5rem;
+  font-weight: 600;
   text-decoration: none;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   opacity: 0;
   transform: translateY(20px);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
@@ -198,13 +200,13 @@
 .mobile-menu-overlay.open .mobile-menu-links .mobile-btn-consult { transition-delay: 0.43s; opacity: 1; transform: translateY(0); }
 
 .mobile-btn-consult {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   background-color: var(--brand-primary);
   color: #ffffff !important;
-  padding: 0.85rem 2.25rem;
+  padding: 0.65rem 1.5rem;
   border-radius: 9999px;
-  font-size: 0.95rem !important;
-  font-weight: 800;
+  font-size: 0.85rem !important;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border: none;
@@ -227,6 +229,14 @@
 
 /* Responsive */
 @media (max-width: 992px) {
+  .navbar {
+    padding: 0.75rem 2rem;
+  }
+  
+  .navbar.scrolled {
+    padding: 0.5rem 2rem;
+  }
+
   .navbar-links-desktop {
     display: none; /* Hide top links on mobile */
   }
@@ -237,5 +247,20 @@
   
   .btn-consult {
     display: none; /* Hide main CTA on mobile header */
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar.scrolled {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo-img {
+    height: 90px;
+    margin: -25px 0 -25px -10px; /* pull left slightly if needed, but let's keep it centered vertically */
   }
 }

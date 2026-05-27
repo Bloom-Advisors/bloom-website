@@ -48,7 +48,7 @@ const Hero = () => {
             We help growing companies replace fragmented tools with Business Central — one platform for finance, operations, and reporting that scales with you.
           </p>
           <Link to="/contact" className="btn-get-in-touch">
-            <span className="btn-text">GET IN TOUCH</span>
+            <span className="btn-text">BOOK CONSULTATION</span>
             <div className="icon-circle">
               <ArrowRight size={18} />
             </div>

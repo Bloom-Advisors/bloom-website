@@ -24,6 +24,15 @@
   border-bottom: 1px solid #163A5F;
 }
 
+@media (max-width: 992px) {
+  .services-header-split {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
 .services-main-heading {
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 800;
@@ -59,7 +68,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px; /* Increased to align with wider card */
+  max-width: 1200px;
   margin: 0 auto 1.5rem auto;
 }
 
@@ -247,10 +256,21 @@
 }
 
 @media (max-width: 600px) {
+  .services-showcase-container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .showcase-card {
+    order: 1;
     padding: 2rem 1.5rem;
     gap: 2rem;
     border-radius: 18px;
+  }
+
+  .showcase-nav {
+    order: 2;
+    margin: 1.5rem auto 0 auto;
   }
   
   .card-image-wrapper {

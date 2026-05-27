@@ -3,14 +3,14 @@
 .about-section {
   position: relative;
   background-color: #ffffff;
-  padding: 5.5rem 3rem;
+  padding-block: clamp(72px, 8vw, 128px);
   overflow: hidden;
   color: #0B1F33;
 }
 
 .about-container {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: min(100% - clamp(32px, 5vw, 96px), var(--container));
+  margin-inline: auto;
 }
 
 /* Light Mode Overrides for Global Split Header */
@@ -29,15 +29,15 @@
 /* Stats Grid */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.5vw, 36px);
   width: 100%;
 }
 
 .stat-card {
   background-color: #f4f4f5; /* Light gray background */
   border-radius: 1.5rem;
-  padding: 3rem 2rem;
+  padding: clamp(24px, 3vw, 48px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -95,20 +95,10 @@
 
 @media (max-width: 992px) {
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .stat-card:last-child {
     grid-column: span 2;
-  }
-  .stat-card {
-    padding: 2.5rem 1.75rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-section {
-    padding: 4rem 1.5rem;
   }
 }
 

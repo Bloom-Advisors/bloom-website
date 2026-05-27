@@ -6,7 +6,8 @@
 /* ===== Hero Section ===== */
 .contact-hero {
   position: relative;
-  padding: 12rem 2rem 6rem;
+  padding-block: clamp(120px, 12vw, 190px) clamp(60px, 6vw, 96px);
+  padding-inline: clamp(24px, 5vw, 64px);
   overflow: hidden;
   text-align: center;
 }
@@ -139,15 +140,15 @@
 
 /* ===== Main Section (Form + Sidebar) ===== */
 .contact-main {
-  padding: 5rem 2rem 6rem;
+  padding-block: clamp(72px, 8vw, 128px);
 }
 
 .contact-main-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: min(100% - clamp(32px, 5vw, 96px), var(--container));
+  margin-inline: auto;
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 5vw, 72px);
   align-items: start;
 }
 
@@ -156,7 +157,7 @@
   background: #ffffff;
   border: 1px solid #e8eaed;
   border-radius: 1.25rem;
-  padding: 3rem;
+  padding: clamp(28px, 4vw, 56px);
 }
 
 .contact-form-header {

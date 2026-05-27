@@ -5,9 +5,14 @@
   --text-muted: #d0d0d0;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --container: 1280px;
+  --radius-lg: 32px;
+  --radius-md: 20px;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,15 +20,64 @@
 }
 
 html {
+  width: 100%;
   scroll-behavior: smooth;
 }
 
 html, body {
+  margin: 0;
+  width: 100%;
   font-family: 'Manrope', sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-white);
   line-height: 1.5;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.container {
+  width: min(100% - clamp(32px, 5vw, 96px), var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(72px, 8vw, 128px);
+}
+
+h1 {
+  font-size: clamp(44px, 5vw, 76px);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: clamp(24px, 2.5vw, 36px);
+  line-height: 1.2;
+}
+
+p {
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.7;
 }
 
 a {
@@ -171,11 +225,11 @@ a, button {
 }
 
 .section-heading {
-  font-size: clamp(3rem, 5vw, 5rem);
-  font-weight: 700;
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
   margin: 0;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-weight: 700;
 }
 
 .section-heading .text-muted {
@@ -184,8 +238,8 @@ a, button {
 
 .section-subheading {
   color: #a1a1aa;
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -198,14 +252,6 @@ a, button {
 }
 
 @media (max-width: 576px) {
-  .section-heading {
-    font-size: 2.25rem;
-  }
-  
-  .section-subheading {
-    font-size: 1.05rem;
-  }
-  
   section {
     padding: 3rem 0;
   }
