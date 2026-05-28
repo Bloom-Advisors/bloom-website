@@ -1,4 +1,5 @@
 import React from 'react';
+import { Settings, BarChart3, Calculator, Database, Users } from 'lucide-react';
 import CTABanner from '../components/CTABanner';
 import Capabilities from '../components/Capabilities';
 import './ServicesPage.css';
@@ -7,33 +8,68 @@ const ServicesPage = () => {
   const services = [
     {
       id: 1,
+      Icon: Settings,
+      tag: 'Setup',
       image: '/results_consulting.png',
       title: 'BC Implementation',
-      desc: 'Chart of accounts, financial dimensions, periods, and integrations. Configured to your business, not a generic template.'
+      desc: 'Chart of accounts, financial dimensions, periods, and integrations. Configured to your business, not a generic template.',
+      bullets: [
+        'Custom chart of accounts',
+        'Financial dimensions setup',
+        'Multi-system integrations'
+      ]
     },
     {
       id: 2,
+      Icon: BarChart3,
+      tag: 'Analytics',
       image: '/results_team.png',
       title: 'BI and Reporting',
-      desc: 'Power BI dashboards, Jet Reports, and Solver reporting layers built directly on your Business Central data.'
+      desc: 'Power BI dashboards, Jet Reports, and Solver reporting layers built directly on your Business Central data.',
+      bullets: [
+        'Jet Reports configuration',
+        'Power BI dashboards',
+        'Live transactional insights'
+      ]
     },
     {
       id: 3,
+      Icon: Calculator,
+      tag: 'FP&A',
       image: '/results_operations.png',
-      title: 'Financial Planning and Analysis',
-      desc: 'Multi-quarter budgeting and forecasting models in Solver xFP&A, connected to live BC actuals for real-time variance tracking.'
+      title: 'Financial Planning & Analysis',
+      desc: 'Multi-quarter budgeting and forecasting models in Solver xFP&A, connected to live BC actuals for real-time variance tracking.',
+      bullets: [
+        'Solver xFP&A planning models',
+        'Rolling forecasting setup',
+        'Automated variance analysis'
+      ]
     },
     {
       id: 4,
+      Icon: Database,
+      tag: 'Migration',
       image: '/understanding_bg.png',
       title: 'ERP Data Migration',
-      desc: 'Structured migration from Sage, Xero, QuickBooks, and other legacy systems. Data mapped, cleansed, and validated before go-live.'
+      desc: 'Structured migration from Sage, Xero, QuickBooks, and other legacy systems. Data mapped, cleansed, and validated before go-live.',
+      bullets: [
+        'Legacy data mapping',
+        'Automated validation checks',
+        'Auditable transition records'
+      ]
     },
     {
       id: 5,
+      Icon: Users,
+      tag: 'Capacity',
       image: '/cta_collaboration.png',
       title: 'Subcontracting',
-      desc: 'Available as ad-hoc resources for ERP consultancies. We integrate directly into your delivery team to provide specialist capacity.'
+      desc: 'Available as ad-hoc resources for ERP consultancies. We integrate directly into your delivery team to provide specialist capacity.',
+      bullets: [
+        'Certified senior capacity',
+        'Seamless team integration',
+        'Ad-hoc consultant support'
+      ]
     }
   ];
 
@@ -51,7 +87,7 @@ const ServicesPage = () => {
               <span className="sp-subtitle">Business Decisions</span>
             </h1>
             <p className="sp-description hero-animate delay-3">
-              Available as ad-hoc resources for ERP consultancies. We integrate directly into your delivery team to provide specialist capacity.
+              We help growing companies implement, optimize, and scale Business Central and Solver to unify finance, operations, and reporting.
             </p>
           </div>
         </div>
@@ -74,17 +110,44 @@ const ServicesPage = () => {
       {/* Services Grid Section */}
       <section className="sp-grid-section">
         <div className="container">
-          <div className="sp-grid">
-            {services.map((srv, index) => (
-              <a href="#" key={srv.id} className="sp-card" data-reveal data-reveal-delay={`${index + 1}`}>
-                <div className="sp-card-img-wrapper">
-                  <img src={srv.image} alt={srv.title} className="sp-card-img" loading="lazy" />
+          <div className="services-page-grid">
+            {services.map((srv, idx) => (
+              <div 
+                key={srv.id} 
+                className="services-page-card" 
+                style={{ '--index': idx + 1 }}
+                data-reveal
+              >
+                
+                {/* Left Column: Info & Content */}
+                <div className="sp-card-info-side">
+                  <div className="sp-card-tag-pill">{srv.tag}</div>
+                  <h3 className="sp-card-title">{srv.title}</h3>
+                  <p className="sp-card-description">{srv.desc}</p>
+                  {/* Bullets List */}
+                  <ul className="sp-card-bullets-list">
+                    {srv.bullets.map((bullet, idx) => (
+                      <li key={idx} className="sp-card-bullet-item">
+                        <span className="sp-bullet-dot"></span>
+                        <span className="sp-bullet-text">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="sp-card-content">
-                  <h3 className="card-title">{srv.title}</h3>
-                  <p className="sp-card-desc">{srv.desc}</p>
+
+                {/* Right Column: Media */}
+                <div className="sp-card-media-side">
+                  <div className="sp-card-image-wrapper">
+                    <img 
+                      src={srv.image} 
+                      alt={srv.title} 
+                      className="sp-card-img"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
-              </a>
+
+              </div>
             ))}
           </div>
         </div>
@@ -101,3 +164,4 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+

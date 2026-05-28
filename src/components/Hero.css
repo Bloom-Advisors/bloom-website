@@ -5,11 +5,11 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: clamp(480px, 70vh, 760px);
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: clamp(110px, 10vw, 160px) clamp(60px, 6vw, 100px);
+  padding-block: 200px 80px;
   padding-inline: clamp(24px, 5vw, 64px);
   background-color: #000000;
   overflow: hidden;
@@ -77,35 +77,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
+  gap: 1.5rem;
 }
 
 .hero-content {
-  max-width: 760px;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 0;
 }
 
 /* Uppercase Editorial Title */
 .hero-title {
-  font-size: clamp(44px, 6vw, 82px);
+  font-size: clamp(36px, 5vw, 72px);
   font-weight: 400;           /* base = thin */
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: #ffffff;
   opacity: 0;
+  white-space: nowrap;
   animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 
 .title-bold {
+  display: block;
   font-weight: 900;
   color: #ffffff;
 }
 
 .title-thin {
+  display: block;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -116,7 +120,7 @@
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.75;
   max-width: 580px;
-  margin: 1.75rem auto 3.25rem;
+  margin: 0.5rem auto 1rem;
   opacity: 0;
   animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
 }
@@ -173,7 +177,7 @@
   display: flex;
   justify-content: center;
   gap: 0.75rem;
-  margin: -1.5rem auto 1rem;
+  margin: 0 auto;
   opacity: 0;
   animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
   z-index: 5;
@@ -218,7 +222,7 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 1.5rem 2.25rem;
+  padding: 1rem 1.5rem;
   min-width: 220px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
@@ -298,6 +302,7 @@
 
   .hero-title {
     letter-spacing: -1px;
+    white-space: normal;
   }
 
   .hero-subtitle {

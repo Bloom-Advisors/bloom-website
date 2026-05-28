@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Mail, Phone, MapPin, ArrowRight, Check, Clock, MessageCircle } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import CTABanner from '../components/CTABanner';
 import './ContactPage.css';
 
@@ -32,7 +32,7 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page-wrapper page-transition">
-      
+
       {/* Hero Section */}
       <section className="contact-hero">
         <div className="contact-hero-bg"></div>
@@ -49,29 +49,48 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Form + Sidebar Section */}
-      <section className="contact-main" data-reveal>
-        <div className="contact-main-container">
-          
-          {/* Form Card */}
-          <div className="contact-form-card" data-reveal>
-            <div className="contact-form-header">
-              <h2>Send us a message</h2>
-              <p>Tell us what's not working. We'll respond within one business day.</p>
-            </div>
+      {/* Editorial Form Section */}
+      <section className="contact-editorial-section">
+        <div className="contact-editorial-inner">
 
+          {/* Left: Editorial Label Column */}
+          <div className="editorial-label-col">
+            <span className="editorial-index">001</span>
+            <h2 className="editorial-heading">Start the<br />conversation.</h2>
+            <p className="editorial-subtext">
+              Tell us about your business and what's holding it back. We read every message personally.
+            </p>
+            <div className="editorial-contact-strip">
+              <div className="editorial-contact-item">
+                <span className="editorial-contact-label">Email</span>
+                <a href="mailto:kwesi@bloomadvisors.uk" className="editorial-contact-value">kwesi@bloomadvisors.uk</a>
+              </div>
+              <div className="editorial-contact-item">
+                <span className="editorial-contact-label">Phone</span>
+                <a href="tel:+447990774379" className="editorial-contact-value">+44 (0) 7990 774379</a>
+              </div>
+              <div className="editorial-contact-item">
+                <span className="editorial-contact-label">Office</span>
+                <span className="editorial-contact-value">6th Floor, 37 Lombard St, London</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Form Column */}
+          <div className="editorial-form-col">
             {submitted ? (
-              <div className="success-state">
-                <div className="success-icon">
-                  <Check size={28} />
+              <div className="editorial-success">
+                <div className="editorial-success-icon">
+                  <Check size={32} />
                 </div>
-                <h3>Message sent successfully</h3>
-                <p>We'll review your challenge and get back to you personally within one business day.</p>
+                <h3>Message received.</h3>
+                <p>We'll be in touch within one business day.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-row">
-                  <div className="form-group">
+              <form onSubmit={handleSubmit} className="editorial-form">
+
+                <div className="editorial-form-row">
+                  <div className="editorial-field">
                     <label htmlFor="name">Full Name</label>
                     <input
                       type="text"
@@ -81,9 +100,10 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       placeholder="Kwame Mensah"
+                      autoComplete="off"
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="editorial-field">
                     <label htmlFor="company">Company</label>
                     <input
                       type="text"
@@ -93,12 +113,13 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       placeholder="Acme Holdings Ltd"
+                      autoComplete="off"
                     />
                   </div>
                 </div>
 
-                <div className="form-row">
-                  <div className="form-group">
+                <div className="editorial-form-row">
+                  <div className="editorial-field">
                     <label htmlFor="email">Work Email</label>
                     <input
                       type="email"
@@ -108,10 +129,11 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       placeholder="kwame@acme.com"
+                      autoComplete="off"
                     />
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="phone">Phone (optional)</label>
+                  <div className="editorial-field">
+                    <label htmlFor="phone">Phone <span className="field-optional">(optional)</span></label>
                     <input
                       type="tel"
                       id="phone"
@@ -119,11 +141,12 @@ const ContactPage = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+44 7990 774379"
+                      autoComplete="off"
                     />
                   </div>
                 </div>
 
-                <div className="form-group">
+                <div className="editorial-field editorial-field--full">
                   <label htmlFor="challenges">What's not working?</label>
                   <textarea
                     id="challenges"
@@ -131,67 +154,25 @@ const ContactPage = () => {
                     value={formData.challenges}
                     onChange={handleChange}
                     required
-                    rows="5"
-                    placeholder="Describe your current system challenges, reconciliation bottlenecks, or budgeting pain points..."
+                    rows="4"
+                    placeholder="Describe your current system challenges, reconciliation bottlenecks, or reporting pain points..."
                   ></textarea>
                 </div>
 
-                <button type="submit" className="contact-submit-btn">
-                  <span>Submit now</span>
-                  <ArrowRight size={16} />
-                </button>
+                <div className="editorial-form-footer">
+                  <button type="submit" className="editorial-submit-btn">
+                    <span>Send message</span>
+                    <div className="editorial-btn-icon">
+                      <ArrowRight size={18} />
+                    </div>
+                  </button>
+                  <p className="editorial-form-note">We respond within one business day.</p>
+                </div>
+
               </form>
             )}
           </div>
 
-          {/* Sidebar */}
-          <div className="contact-sidebar" data-reveal data-reveal-delay="2">
-            
-            {/* What to Expect Card */}
-            <div className="sidebar-card expect-card-premium">
-              <h3>What to expect</h3>
-              <div className="expect-list-premium">
-                <div className="expect-item-premium">
-                  <span className="expect-num-badge">01</span>
-                  <p className="expect-text-premium">We ask about your current systems and pain points</p>
-                </div>
-                <div className="expect-item-premium">
-                  <span className="expect-num-badge">02</span>
-                  <p className="expect-text-premium">We assess whether Business Central is the right fit</p>
-                </div>
-                <div className="expect-item-premium">
-                  <span className="expect-num-badge">03</span>
-                  <p className="expect-text-premium">We outline the implementation approach and timeline</p>
-                </div>
-                <div className="expect-item-premium">
-                  <span className="expect-num-badge">04</span>
-                  <p className="expect-text-premium">If it's not the right fit, we'll tell you honestly</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Full-width Horizontal Contact Info Banner */}
-        <div className="contact-info-banner-container" data-reveal data-reveal-delay="3">
-          <div className="contact-info-banner-card">
-            <div className="info-column">
-              <span className="info-label">Email</span>
-              <a href="mailto:kwesi@bloomadvisors.uk" className="info-value">kwesi@bloomadvisors.uk</a>
-            </div>
-            <div className="info-divider"></div>
-            <div className="info-column">
-              <span className="info-label">Phone</span>
-              <a href="tel:+447990774379" className="info-value">+44 (0) 7990 774379</a>
-            </div>
-            <div className="info-divider"></div>
-            <div className="info-column">
-              <span className="info-label">Address</span>
-              <span className="info-value">6th Floor, 37 Lombard Street, London, EC3V 9BQ</span>
-            </div>
-          </div>
         </div>
       </section>
 

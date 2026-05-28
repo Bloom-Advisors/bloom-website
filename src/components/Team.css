@@ -27,6 +27,7 @@
 .team-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .team-image-wrapper {
@@ -91,7 +92,7 @@
 }
 
 .team-certs {
-  margin-top: auto;
+  margin-top: 3.5rem;
 }
 
 .team-certs-title {

@@ -43,7 +43,6 @@
   z-index: 3;
 }
 
-
 .sp-hero-content {
   max-width: 800px;
   margin: 0 auto;
@@ -88,34 +87,16 @@
   line-height: 1.6;
 }
 
-/* Animations */
 .hero-animate {
   opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.delay-1 {
-  animation-delay: 0.1s;
-}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
 
-.delay-2 {
-  animation-delay: 0.25s;
-}
-
-.delay-3 {
-  animation-delay: 0.4s;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
 
 /* Intro Section */
 .sp-intro-section {
@@ -153,94 +134,170 @@
 }
 
 @media (max-width: 992px) {
-  .sp-intro-content {
-    flex-direction: column;
-    gap: 2rem;
-  }
+  .sp-intro-content { flex-direction: column; gap: 2rem; }
 }
 
 /* Grid Section */
 .sp-grid-section {
-  padding-block: clamp(3rem, 6vw, 6rem) clamp(4rem, 8vw, 8rem);
+  background-color: #F4F4F5; /* Soft, premium light grey background for cards container */
+  padding-block: clamp(4rem, 8vw, 8rem);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.sp-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(40px, 5vw, 64px) clamp(20px, 2vw, 32px);
-}
-
-@media (max-width: 1100px) {
-  .sp-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .sp-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
-
-/* Minimal Editorial Cards */
-.sp-card {
+.services-page-grid {
   display: flex;
   flex-direction: column;
-  background-color: transparent;
-  text-decoration: none;
-  border: none;
-  box-shadow: none;
-  outline: none;
+  gap: 2.5rem; /* Spacious spacing between stacked horizontal cards */
 }
 
-.sp-card-img-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/11; /* slightly taller image */
+/* Card base style */
+.services-page-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08); /* Clean solid border instead of drop shadow */
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr; /* Split ratio: Left Text, Right Image */
   overflow: hidden;
-  background-color: #f4f4f5;
-  margin-bottom: 1.5rem;
+  position: sticky;
+  top: calc(90px + var(--index) * 22px); /* Beautifully staggered overlay stack */
+  z-index: var(--index);
+  transition: 
+    transform 0.5s var(--ease-out-expo), 
+    border-color 0.5s var(--ease-out-expo);
+}
+
+.services-page-card:hover {
+  transform: translateY(-4px); /* Subtle premium hover lift */
+  border-color: rgba(95, 167, 119, 0.4); /* Branded green border on hover */
+}
+
+/* Info Column (Left Side) */
+.sp-card-info-side {
+  padding: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Yellow Pill Badge */
+.sp-card-tag-pill {
+  display: inline-block;
+  background-color: #F8F100; /* Vibrant Yellow */
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.95rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+
+/* Card Title */
+.sp-card-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #0B1F33; /* Branded dark midnight navy */
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+/* Card Description */
+.sp-card-description {
+  font-size: 1.05rem;
+  color: #52525b; /* Soft dark gray */
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Bullet Checklist */
+.sp-card-bullets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sp-card-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sp-bullet-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #5FA777; /* Brand green bullet */
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sp-bullet-text {
+  font-size: 0.95rem;
+  color: #52525b;
+  font-weight: 500;
+}
+
+/* Media Column (Right Side) */
+.sp-card-media-side {
+  padding: 1.5rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.sp-card-image-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
 }
 
 .sp-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s ease;
+  transition: transform 0.7s var(--ease-out-expo);
 }
 
-.sp-card:hover .sp-card-img {
+.services-page-card:hover .sp-card-img {
   transform: scale(1.04);
-}
-
-.sp-card-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.card-title {
-  font-size: clamp(1.25rem, 3vw, 1.5rem); /* increased from 1.35rem */
-  line-height: 1.3;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: #000000;
-  margin: 0 0 0.5rem 0;
-  transition: color 0.3s ease;
-}
-
-.sp-card:hover .card-title {
-  color: #5f9d68;
-}
-
-.sp-card-desc {
-  font-size: 1.05rem; /* increased from 0.95rem */
-  color: #6b7280; /* Gray 500 */
-  line-height: 1.6;
-  margin: 0;
 }
 
 /* CTA Wrapper */
 .sp-cta-wrapper {
   margin-bottom: 4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .services-page-card {
+    grid-template-columns: 1fr; /* Stack vertically on smaller screens */
+    border-radius: 20px;
+    position: relative;
+    top: auto;
+    z-index: auto;
+  }
+  
+  .sp-card-media-side {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .sp-card-image-wrapper {
+    min-height: 280px;
+  }
+  
+  .sp-card-info-side {
+    padding: 2.25rem 1.5rem 1.5rem;
+  }
+  
+  .sp-card-bullets-list {
+    margin-bottom: 1.5rem;
+  }
 }
