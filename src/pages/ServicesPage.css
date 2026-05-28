@@ -1,0 +1,303 @@
+/* ServicesPage.css */
+
+.services-page-wrapper {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.sp-hero {
+  padding-block: clamp(110px, 12vw, 200px) clamp(60px, 8vw, 120px);
+  min-height: clamp(420px, 60vh, 680px);
+  background-color: #060e17;
+  background-image: url('/decision_support.png');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+}
+
+.sp-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.sp-hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.sp-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-breadcrumb {
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  font-family: monospace, sans-serif;
+}
+
+.breadcrumb-muted {
+  color: #94a3b8; /* Slate 400 */
+}
+
+.breadcrumb-active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sp-title {
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.sp-subtitle {
+  color: #5FA777; /* Brand green */
+}
+
+.sp-description {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: #94a3b8; /* Slate 400 */
+  line-height: 1.6;
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
+
+/* Intro Section */
+.sp-intro-section {
+  padding-top: clamp(4rem, 8vw, 8rem);
+  padding-bottom: 2rem;
+}
+
+.sp-intro-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.sp-intro-title {
+  flex: 1;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #071421;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 600px;
+}
+
+.sp-intro-text {
+  flex: 1;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #52525b;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 550px;
+}
+
+@media (max-width: 992px) {
+  .sp-intro-content { flex-direction: column; gap: 2rem; }
+}
+
+/* Grid Section */
+.sp-grid-section {
+  background-color: #F4F4F5; /* Soft, premium light grey background for cards container */
+  padding-block: clamp(4rem, 8vw, 8rem);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.services-page-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Spacious spacing between stacked horizontal cards */
+}
+
+/* Card base style */
+.services-page-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08); /* Clean solid border instead of drop shadow */
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr; /* Split ratio: Left Text, Right Image */
+  overflow: hidden;
+  position: sticky;
+  top: calc(90px + var(--index) * 22px); /* Beautifully staggered overlay stack */
+  z-index: var(--index);
+  transition: 
+    transform 0.5s var(--ease-out-expo), 
+    border-color 0.5s var(--ease-out-expo);
+}
+
+.services-page-card:hover {
+  transform: translateY(-4px); /* Subtle premium hover lift */
+  border-color: rgba(95, 167, 119, 0.4); /* Branded green border on hover */
+}
+
+/* Info Column (Left Side) */
+.sp-card-info-side {
+  padding: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Yellow Pill Badge */
+.sp-card-tag-pill {
+  display: inline-block;
+  background-color: #F8F100; /* Vibrant Yellow */
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.95rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+
+/* Card Title */
+.sp-card-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #0B1F33; /* Branded dark midnight navy */
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+/* Card Description */
+.sp-card-description {
+  font-size: 1.05rem;
+  color: #52525b; /* Soft dark gray */
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Bullet Checklist */
+.sp-card-bullets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sp-card-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sp-bullet-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #5FA777; /* Brand green bullet */
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sp-bullet-text {
+  font-size: 0.95rem;
+  color: #52525b;
+  font-weight: 500;
+}
+
+/* Media Column (Right Side) */
+.sp-card-media-side {
+  padding: 1.5rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.sp-card-image-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sp-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.services-page-card:hover .sp-card-img {
+  transform: scale(1.04);
+}
+
+/* CTA Wrapper */
+.sp-cta-wrapper {
+  margin-bottom: 4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .services-page-card {
+    grid-template-columns: 1fr; /* Stack vertically on smaller screens */
+    border-radius: 20px;
+    position: relative;
+    top: auto;
+    z-index: auto;
+  }
+  
+  .sp-card-media-side {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .sp-card-image-wrapper {
+    min-height: 280px;
+  }
+  
+  .sp-card-info-side {
+    padding: 2.25rem 1.5rem 1.5rem;
+  }
+  
+  .sp-card-bullets-list {
+    margin-bottom: 1.5rem;
+  }
+}

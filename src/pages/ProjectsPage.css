@@ -1,0 +1,266 @@
+.projects-page-wrapper {
+  background-color: #ffffff;
+}
+
+.pp-hero {
+  padding-block: clamp(140px, 15vw, 240px) clamp(80px, 8vw, 140px);
+  min-height: clamp(420px, 62vh, 680px);
+  background-color: #060e17;
+  background-image: url('/homepage_hero_team.png');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.pp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+}
+
+.pp-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.pp-hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+
+.pp-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-breadcrumb {
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  font-family: monospace, sans-serif;
+}
+
+.breadcrumb-muted {
+  color: #94a3b8; /* Slate 400 */
+}
+
+.breadcrumb-active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.pp-title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem 0;
+  color: #ffffff;
+}
+
+.pp-description {
+  font-size: 1.25rem;
+  color: #94a3b8; /* Slate 400 */
+  line-height: 1.6;
+  margin: 0 0 2.5rem 0;
+}
+
+/* Animations */
+.hero-animate {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.25s;
+}
+
+.delay-3 {
+  animation-delay: 0.4s;
+}
+
+.delay-4 {
+  animation-delay: 0.55s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pp-hero-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #5f9d68;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.pp-hero-btn:hover {
+  background-color: #4b7f53;
+}
+
+/* Intro Section */
+.pp-intro-section {
+  padding: 6rem 0 2rem 0;
+  background-color: #ffffff;
+}
+
+.pp-intro-content {
+  max-width: 800px;
+}
+
+.pp-intro-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #071421;
+  margin: 0 0 1rem 0;
+}
+
+.pp-intro-text {
+  font-size: 1.1rem;
+  color: #52525b;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Projects Grid Section */
+.pp-list-section {
+  padding: 4rem 0 8rem 0;
+  background-color: #ffffff;
+}
+
+.pp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(48px, 6vw, 64px) clamp(24px, 4vw, 48px);
+}
+
+.pp-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.pp-card-image-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 12px; /* Smoother curve from screenshot */
+  margin-bottom: 2rem;
+}
+
+.pp-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.pp-card-image-link:hover .pp-card-image {
+  transform: scale(1.03);
+}
+
+.pp-card-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pp-card-tag {
+  background-color: #1e1b4b; /* Deep indigo tag color from screenshot */
+  color: #ffffff;
+  padding: 0.4rem 1.25rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pp-card-title-link {
+  text-decoration: none;
+  color: #1e1b4b; /* Deep indigo title */
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.pp-card-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400; /* Lighter elegant weight from screenshot */
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.pp-card-title-link:hover .pp-card-title {
+  color: #5f9d68; /* Hover effect */
+}
+
+.pp-card-summary {
+  font-size: 1.05rem;
+  color: #52525b;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  flex-grow: 1; /* Pushes the read link to the bottom if text varies */
+}
+
+.pp-card-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #3f3f46;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.pp-card-read-link:hover {
+  color: #1e1b4b;
+}
+
+.pp-arrow {
+  transition: transform 0.3s ease;
+}
+
+.pp-card-read-link:hover .pp-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 992px) {
+  .pp-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}

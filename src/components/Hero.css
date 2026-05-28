@@ -1,0 +1,338 @@
+/* ============================================================
+   HERO — Redesigned Premium Overlaid Layout
+   ============================================================ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 200px 80px;
+  padding-inline: clamp(24px, 5vw, 64px);
+  background-color: #000000;
+  overflow: hidden;
+}
+/* Cinematic Zooming Background Carousel */
+.hero-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.85);
+  animation: smoothZoom 25s linear infinite alternate;
+  will-change: transform;
+  z-index: 0;
+}
+
+.hero-bg-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Gradient Overlay - Black gradient opacity and vignette on the image */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+}
+
+.hero-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.hero-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-content {
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Uppercase Editorial Title */
+.hero-title {
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 400;           /* base = thin */
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+  white-space: nowrap;
+  animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.title-bold {
+  display: block;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.title-thin {
+  display: block;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 0.5rem auto 1rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+/* Premium Pill-shaped CTA Button */
+.btn-get-in-touch {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  width: fit-content;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  opacity: 0;
+  animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+
+.btn-get-in-touch:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(95, 167, 119, 0.35);
+  background-color: #f8fafc;
+}
+
+.btn-text {
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #0b1f33;
+}
+
+.icon-circle {
+  background-color: var(--brand-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1.5rem;
+  color: #ffffff;
+  transition: transform 0.35s ease;
+}
+
+.btn-get-in-touch:hover .icon-circle {
+  transform: rotate(-45deg);
+}
+
+/* Carousel Slide Indicators */
+.hero-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+  z-index: 5;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.slider-dot:hover {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.slider-dot.active {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(95, 167, 119, 0.5);
+}
+
+/* Glassmorphic Stats Section */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  min-width: 220px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(95, 167, 119, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 16px 48px rgba(95, 167, 119, 0.15);
+}
+
+.stat-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  max-width: 155px;
+  line-height: 1.45;
+  margin-top: 0.40rem;
+}
+
+/* ──────────────────────────────────────────────
+   ANIMATIONS & KEYFRAMES
+   ────────────────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes smoothZoom {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.08); }
+}
+
+/* ──────────────────────────────────────────────
+   RESPONSIVE DESIGN
+   ────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .hero {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-container {
+    gap: 4rem;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .stat-card {
+    flex: 1;
+    min-width: 200px;
+    padding: 1.25rem 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-title {
+    letter-spacing: -1px;
+    white-space: normal;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .stat-card {
+    min-width: unset;
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+  }
+
+  .stat-card:last-child {
+    grid-column: span 2;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    max-width: 100%;
+  }
+}

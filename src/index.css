@@ -1,0 +1,262 @@
+:root {
+  --brand-primary: #5FA777;
+  --bg-dark: #0B1F33;
+  --text-white: #ffffff;
+  --text-muted: #d0d0d0;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --container: 1280px;
+  --radius-lg: 32px;
+  --radius-md: 20px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+html {
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.container {
+  width: min(100% - clamp(32px, 5vw, 96px), var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(72px, 8vw, 128px);
+}
+
+h1 {
+  font-size: clamp(44px, 5vw, 76px);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: clamp(24px, 2.5vw, 36px);
+  line-height: 1.2;
+}
+
+p {
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ===========================
+   GLOBAL SCROLL REVEAL SYSTEM
+   =========================== */
+
+/* Base reveal state - hidden */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+}
+
+/* Revealed state */
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional variants */
+[data-reveal="left"] {
+  transform: translateX(-50px);
+}
+[data-reveal="left"].revealed {
+  transform: translateX(0);
+}
+
+[data-reveal="right"] {
+  transform: translateX(50px);
+}
+[data-reveal="right"].revealed {
+  transform: translateX(0);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.95);
+}
+[data-reveal="scale"].revealed {
+  transform: scale(1);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+[data-reveal="fade"].revealed {
+  transform: none;
+}
+
+/* Stagger delays for children */
+[data-reveal-delay="1"] { transition-delay: 0.1s; }
+[data-reveal-delay="2"] { transition-delay: 0.2s; }
+[data-reveal-delay="3"] { transition-delay: 0.3s; }
+[data-reveal-delay="4"] { transition-delay: 0.4s; }
+[data-reveal-delay="5"] { transition-delay: 0.5s; }
+[data-reveal-delay="6"] { transition-delay: 0.6s; }
+[data-reveal-delay="7"] { transition-delay: 0.7s; }
+[data-reveal-delay="8"] { transition-delay: 0.8s; }
+
+/* Stagger children automatically */
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: 
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+}
+
+[data-reveal-stagger].revealed > *:nth-child(1) { transition-delay: 0.05s; }
+[data-reveal-stagger].revealed > *:nth-child(2) { transition-delay: 0.1s; }
+[data-reveal-stagger].revealed > *:nth-child(3) { transition-delay: 0.15s; }
+[data-reveal-stagger].revealed > *:nth-child(4) { transition-delay: 0.2s; }
+[data-reveal-stagger].revealed > *:nth-child(5) { transition-delay: 0.25s; }
+[data-reveal-stagger].revealed > *:nth-child(6) { transition-delay: 0.3s; }
+
+[data-reveal-stagger].revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   GLOBAL SMOOTH TRANSITIONS
+   =========================== */
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.4s ease;
+}
+
+/* Smooth link/button interactions */
+a, button {
+  transition: all 0.3s var(--ease-out-quart);
+}
+
+/* Page transition wrapper */
+.page-transition {
+  animation: pageIn 0.6s var(--ease-out-expo) forwards;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium Split Header (Global) */
+.section-header-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #163A5F;
+}
+
+.badge-left {
+  margin: 0 0 1.5rem 0 !important;
+  align-self: flex-start;
+}
+
+.sh-left {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-right {
+  max-width: 400px;
+  padding-bottom: 0.5rem;
+}
+
+.section-heading {
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin: 0;
+  font-weight: 700;
+}
+
+.section-heading .text-muted {
+  color: #52525b; /* Zinc 600 */
+}
+
+.section-subheading {
+  color: #a1a1aa;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .section-header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+}
