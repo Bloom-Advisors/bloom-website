@@ -77,7 +77,7 @@ const ContactPage = () => {
               </div>
               <div className="editorial-contact-item">
                 <span className="editorial-contact-label">Office</span>
-                <span className="editorial-contact-value">6th Floor, 37 Lombard St, London</span>
+                <span className="editorial-contact-value">6th Floor, 37 Lombard Street, EC3V 9BQ. London, England</span>
               </div>
             </div>
           </div>
@@ -188,7 +188,7 @@ const ContactPage = () => {
         title="Prefer to speak with us directly?"
         desc="Schedule a free 30-minute discovery call with our team. No obligation — just a conversation about your goals."
         btnText="Book a Free Call"
-        btnLink="/contact"
+        btnLink="https://outlook.office.com/bookwithme/user/e99565bbfe2d464a800fa3e1a350b053@bloomadvisors.uk/meetingtype/9L1KQFzxUkmChE8jx-Tgww2?anonymous&ismsaljsauthenabled&ep=mlink"
         image="/cta_collaboration.png"
         personName="Kwesi Bloom"
         personRole="Principal Advisor"

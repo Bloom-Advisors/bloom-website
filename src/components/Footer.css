@@ -343,3 +343,54 @@
     justify-content: flex-start;
   }
 }
+
+/* Certifications & Partner Logos */
+.footer-certifications {
+  padding: 2rem 0;
+  border-top: 1px solid #e4e4e7;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.footer-cert-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0B1F33;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.footer-cert-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.footer-cert-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.footer-cert-logo:hover {
+  opacity: 1;
+}
+
+@media (max-width: 576px) {
+  .footer-certifications {
+    padding: 1.5rem 0;
+  }
+
+  .footer-cert-logos {
+    gap: 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .footer-cert-logo {
+    height: 36px;
+  }
+}

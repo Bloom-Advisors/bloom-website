@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
-import BookConsultation from './components/BookConsultation';
 import Home from './pages/Home';
 import ServicesPage from './pages/ServicesPage';
 import ProjectsPage from './pages/ProjectsPage';
@@ -37,13 +36,11 @@ function ScrollToTop() {
 }
 
 function App() {
-  const [isConsultOpen, setIsConsultOpen] = useState(false);
-
   return (
     <Router>
       <ScrollToTop />
       <ScrollRevealInit />
-      <Navbar onBookConsult={() => setIsConsultOpen(true)} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />
@@ -52,7 +49,6 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
-      <BookConsultation isOpen={isConsultOpen} onClose={() => setIsConsultOpen(false)} />
       <CookieConsent />
       <Footer />
     </Router>

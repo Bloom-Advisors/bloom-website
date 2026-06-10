@@ -89,6 +89,22 @@ const Footer = () => {
 
         </div>
 
+        {/* Certifications & Partner Logos */}
+        <div className="footer-certifications">
+          <h4 className="footer-cert-title">Certifications</h4>
+          <div className="footer-cert-logos">
+            <img src="/Business-Central-full-logo-2026.png" alt="Microsoft Dynamics 365 Business Central" className="footer-cert-logo" />
+            <img src="/acca.png" alt="ACCA Certified" className="footer-cert-logo" />
+            <img src="/APM.png" alt="APM Certified" className="footer-cert-logo" />
+            <img src="/BUSINESS_FUNCTIONAL.png" alt="Business Functional Consultant" className="footer-cert-logo" />
+            <img src="/DATA_BRICKS.png" alt="Databricks" className="footer-cert-logo" />
+            <img src="/jet_reports.jpg" alt="Jet Reports" className="footer-cert-logo" />
+            <img src="/powerbi.png" alt="Microsoft Power BI" className="footer-cert-logo" />
+            <img src="/solver_planning.png" alt="Solver Planning" className="footer-cert-logo" />
+            <img src="/solver_report.png" alt="Solver Reporting" className="footer-cert-logo" />
+          </div>
+        </div>
+
         {/* Bottom Section: Copyright & Social */}
         <div className="footer-bottom">
           <p className="copyright-text">

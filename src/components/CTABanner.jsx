@@ -8,7 +8,7 @@ const CTABanner = ({
   title = "Ready to Strategize Your Next Move?",
   desc = "Let's talk about your next milestone—and how to reach it",
   btnText = "Schedule a Call",
-  btnLink = "/contact",
+  btnLink = "https://outlook.office.com/bookwithme/user/e99565bbfe2d464a800fa3e1a350b053@bloomadvisors.uk/meetingtype/9L1KQFzxUkmChE8jx-Tgww2?anonymous&ismsaljsauthenabled&ep=mlink",
   image = "/cta_collaboration.png",
   personName = "Alex Tran",
   personRole = "Founder & CEO",

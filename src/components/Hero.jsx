@@ -47,12 +47,12 @@ const Hero = () => {
           <p className="hero-subtitle">
             We help growing companies replace fragmented tools with Business Central — one platform for finance, operations, and reporting that scales with you.
           </p>
-          <Link to="/contact" className="btn-get-in-touch">
+          <a href="https://outlook.office.com/bookwithme/user/e99565bbfe2d464a800fa3e1a350b053@bloomadvisors.uk/meetingtype/9L1KQFzxUkmChE8jx-Tgww2?anonymous&ismsaljsauthenabled&ep=mlink" target="_blank" rel="noopener noreferrer" className="btn-get-in-touch">
             <span className="btn-text">BOOK CONSULTATION</span>
             <div className="icon-circle">
               <ArrowRight size={18} />
             </div>
-          </Link>
+          </a>
         </div>
 
         {/* Carousel Slide Indicators */}

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Team from '../components/Team';
 import CTABanner from '../components/CTABanner';
@@ -111,8 +110,10 @@ const AboutPage = () => {
                 Every engagement is delivered by Kwesi and Ahmed personally. Book a call to meet the team and discuss your project.
               </p>
               <div className="about-understanding-cta">
-                <Link 
-                  to="/contact" 
+                <a 
+                  href="https://outlook.office.com/bookwithme/user/e99565bbfe2d464a800fa3e1a350b053@bloomadvisors.uk/meetingtype/9L1KQFzxUkmChE8jx-Tgww2?anonymous&ismsaljsauthenabled&ep=mlink"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-understanding"
                 >
                   <span className="arrow-circle">
@@ -122,7 +123,7 @@ const AboutPage = () => {
                     </svg>
                   </span>
                   <span className="btn-text">BOOK A FREE CONSULTATION</span>
-                </Link>
+                </a>
               </div>
             </div>
             

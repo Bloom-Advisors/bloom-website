@@ -3,7 +3,9 @@ import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
-const Navbar = ({ onBookConsult }) => {
+const BOOKING_URL = 'https://outlook.office.com/bookwithme/user/e99565bbfe2d464a800fa3e1a350b053@bloomadvisors.uk/meetingtype/9L1KQFzxUkmChE8jx-Tgww2?anonymous&ismsaljsauthenabled&ep=mlink';
+
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -55,9 +57,9 @@ const Navbar = ({ onBookConsult }) => {
         </div>
 
         <div className="navbar-actions">
-          <button className="btn-consult" onClick={onBookConsult}>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-consult">
             BOOK A CONSULTATION
-          </button>
+          </a>
           
           {/* Mobile Menu Toggle */}
           <button className="btn-mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -74,7 +76,7 @@ const Navbar = ({ onBookConsult }) => {
           <Link to="/projects" onClick={closeMobileMenu} className={location.pathname.startsWith('/projects') ? 'active' : ''}>Our Work</Link>
           <Link to="/about" onClick={closeMobileMenu} className={location.pathname === '/about' ? 'active' : ''}>About Us</Link>
           <Link to="/contact" onClick={closeMobileMenu} className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link>
-          <button onClick={() => { closeMobileMenu(); onBookConsult(); }} className="mobile-btn-consult">Book a Consultation</button>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-btn-consult">Book a Consultation</a>
         </div>
       </div>
     </>
