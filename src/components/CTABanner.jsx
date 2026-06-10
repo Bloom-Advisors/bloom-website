@@ -10,8 +10,8 @@ const CTABanner = ({
   btnText = "Schedule a Call",
   btnLink = "https://outlook.office.com/bookwithme/user/e99565bbfe2d464a800fa3e1a350b053@bloomadvisors.uk/meetingtype/9L1KQFzxUkmChE8jx-Tgww2?anonymous&ismsaljsauthenabled&ep=mlink",
   image = "/cta_collaboration.png",
-  personName = "Alex Tran",
-  personRole = "Founder & CEO",
+  personName = "Kwesi Kwofie",
+  personRole = "Lead Consultant",
   personImage = "/expert_1.png"
 }) => {
   return (

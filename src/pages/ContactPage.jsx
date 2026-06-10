@@ -190,8 +190,8 @@ const ContactPage = () => {
         btnText="Book a Free Call"
         btnLink="https://outlook.office.com/bookwithme/user/e99565bbfe2d464a800fa3e1a350b053@bloomadvisors.uk/meetingtype/9L1KQFzxUkmChE8jx-Tgww2?anonymous&ismsaljsauthenabled&ep=mlink"
         image="/cta_collaboration.png"
-        personName="Kwesi Bloom"
-        personRole="Principal Advisor"
+        personName="Kwesi Kwofie"
+        personRole="Lead Consultant"
         personImage="/expert_1.png"
       />
 
