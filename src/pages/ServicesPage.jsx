@@ -1,5 +1,6 @@
 import React from 'react';
 import { Settings, BarChart3, Calculator, Database, Users } from 'lucide-react';
+import SEO from '../components/SEO';
 import CTABanner from '../components/CTABanner';
 import Capabilities from '../components/Capabilities';
 import './ServicesPage.css';
@@ -75,6 +76,11 @@ const ServicesPage = () => {
 
   return (
     <div className="services-page-wrapper page-transition">
+      <SEO
+        title="Services - Business Central Implementation & Solver Consulting"
+        description="Bloom Advisors delivers end-to-end Business Central implementation, Solver xFP&A, BI reporting, ERP data migration, and subcontracting services for growing businesses."
+        canonical="/services"
+      />
       {/* Hero Section */}
       <section className="sp-hero">
         <div className="container">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
+import SEO from '../components/SEO';
 import CTABanner from '../components/CTABanner';
 import './ContactPage.css';
 
@@ -32,6 +33,11 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page-wrapper page-transition">
+      <SEO
+        title="Contact Us - Book a Free Consultation"
+        description="Get in touch with Bloom Advisors. Book a free 30-minute discovery call to discuss your Business Central implementation, Solver reporting, or ERP challenges."
+        canonical="/contact"
+      />
 
       {/* Hero Section */}
       <section className="contact-hero">

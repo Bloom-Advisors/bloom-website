@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import Team from '../components/Team';
 import CTABanner from '../components/CTABanner';
 import './AboutPage.css';
@@ -11,6 +12,11 @@ const AboutPage = () => {
 
   return (
     <div className="about-page-wrapper page-transition">
+      <SEO
+        title="About Us - Independent Dynamics 365 Consultants"
+        description="Meet the Bloom Advisors team. We are independent, hands-on Business Central and Solver consultants delivering ERP implementations directly — no intermediaries."
+        canonical="/about"
+      />
       {/* Hero Section */}
       <section className="about-hero">
         <div className="container">

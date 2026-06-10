@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import CTABanner from '../components/CTABanner';
 import { Link } from 'react-router-dom';
 import { caseStudiesData } from '../data/projectsData';
@@ -7,6 +8,11 @@ import './ProjectsPage.css';
 const ProjectsPage = () => {
   return (
     <div className="projects-page-wrapper page-transition">
+      <SEO
+        title="Our Work - Case Studies & Delivered Projects"
+        description="Explore Bloom Advisors' delivered Business Central and Solver projects across construction, energy, logistics, manufacturing, and retail sectors."
+        canonical="/projects"
+      />
       {/* Hero Section */}
       <section className="pp-hero">
         <div className="container">

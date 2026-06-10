@@ -4,4 +4,20 @@
     <loc>https://bloomadvisors.uk/</loc>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://bloomadvisors.uk/services</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bloomadvisors.uk/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bloomadvisors.uk/projects</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bloomadvisors.uk/contact</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>

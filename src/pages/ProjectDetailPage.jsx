@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import CTABanner from '../components/CTABanner';
 import { caseStudiesData } from '../data/projectsData';
 import './ProjectDetailPage.css';
@@ -30,6 +31,11 @@ const ProjectDetailPage = () => {
 
   return (
     <div className="pdp-wrapper">
+      <SEO
+        title={`${heroTitle} - ${project.sector} Case Study`}
+        description={summaryText}
+        canonical={`/projects/${project.id}`}
+      />
       {/* Hero Section */}
       <section 
         className="pdp-hero-section"
