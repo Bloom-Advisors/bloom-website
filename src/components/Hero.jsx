@@ -41,8 +41,8 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
-            <span className="title-bold">BUSINESS CENTRAL IMPLEMENTATION </span>
-            <span className="title-thin">FOR GROWING COMPANIES.</span>
+            <span className="title-bold">BLOOM ADVISORS — </span>
+            <span className="title-thin">BUSINESS CENTRAL FOR GROWING COMPANIES.</span>
           </h1>
           <p className="hero-subtitle">
             We help growing companies replace fragmented tools with Business Central — one platform for finance, operations, and reporting that scales with you.

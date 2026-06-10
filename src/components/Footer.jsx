@@ -92,7 +92,7 @@ const Footer = () => {
         {/* Bottom Section: Copyright & Social */}
         <div className="footer-bottom">
           <p className="copyright-text">
-            &copy; {new Date().getFullYear()} Bloom Advisors. All rights reserved.
+            &copy; {new Date().getFullYear()} Bloom Advisors. Business Advisory &amp; Growth Consulting. All rights reserved.
           </p>
           <div className="social-links">
             <a href="#" className="social-link" aria-label="LinkedIn">

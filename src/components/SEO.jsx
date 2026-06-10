@@ -5,9 +5,9 @@ const SEO = ({ title, description, canonical, type = 'website' }) => {
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
   const fullTitle = title
     ? `${title} | Bloom Advisors`
-    : 'Bloom Advisors | Business Central & Solver Implementation Consultants';
+    : 'Bloom Advisors | Business Advisory & Growth Consulting UK';
   const defaultDescription =
-    'Bloom Advisors provides Microsoft Dynamics 365 Business Central implementation, Solver xFP&A, financial reporting, and ERP consulting services for growing UK businesses.';
+    'Bloom Advisors provides business advisory, growth strategy, ERP consulting, and professional support for entrepreneurs, startups, and growing organisations in the UK.';
   const desc = description || defaultDescription;
 
   return (

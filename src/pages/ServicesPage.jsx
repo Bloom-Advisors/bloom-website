@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Settings, BarChart3, Calculator, Database, Users } from 'lucide-react';
 import SEO from '../components/SEO';
 import CTABanner from '../components/CTABanner';
@@ -81,6 +82,31 @@ const ServicesPage = () => {
         description="Bloom Advisors delivers end-to-end Business Central implementation, Solver xFP&A, BI reporting, ERP data migration, and subcontracting services for growing businesses."
         canonical="/services"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Business Advisory & ERP Consulting",
+          "provider": {
+            "@type": "Organization",
+            "name": "Bloom Advisors",
+            "url": "https://bloomadvisors.uk"
+          },
+          "areaServed": "GB",
+          "description": "End-to-end Business Central implementation, Solver xFP&A, BI reporting, financial planning, ERP data migration, and consulting services.",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Bloom Advisors Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Central Implementation" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "BI and Reporting" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Financial Planning & Analysis" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ERP Data Migration" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Subcontracting & Consulting" } }
+            ]
+          }
+        })}</script>
+      </Helmet>
       {/* Hero Section */}
       <section className="sp-hero">
         <div className="container">

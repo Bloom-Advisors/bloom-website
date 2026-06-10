@@ -9,8 +9,8 @@ const Home = () => {
   return (
     <div className="page-transition">
       <SEO
-        title="Business Central & Solver Implementation Consultants"
-        description="Bloom Advisors helps growing UK businesses implement Microsoft Dynamics 365 Business Central and Solver xFP&A for unified finance, operations, and reporting."
+        title="Business Advisory & Growth Consulting UK"
+        description="Bloom Advisors provides business advisory, growth strategy, Business Central implementation, and Solver xFP&A consulting for entrepreneurs and growing UK organisations."
         canonical="/"
       />
       <Hero />
