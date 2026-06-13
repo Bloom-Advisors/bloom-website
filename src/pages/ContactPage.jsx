@@ -18,10 +18,30 @@ const ContactPage = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: '', email: '', company: '', phone: '', challenges: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', company: '', phone: '', challenges: '' });
+      } else {
+        alert(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submit error:', error);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   const handleChange = (e) => {

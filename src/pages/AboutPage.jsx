@@ -107,7 +107,7 @@ const AboutPage = () => {
                 Work with us directly.
               </h2>
               <p className="about-understanding-desc">
-                Every engagement is delivered by Kwesi and Ahmed personally. Book a call to meet the team and discuss your project.
+                Every engagement is delivered by Kwesi personally. Book a call to meet the team and discuss your project.
               </p>
               <div className="about-understanding-cta">
                 <a 

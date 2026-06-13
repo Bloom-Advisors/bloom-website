@@ -25,22 +25,6 @@ const Team = () => {
         instagram: '#',
         twitter: '#'
       }
-    },
-    {
-      id: 2,
-      name: 'Ahmed Zuman',
-      role: 'Chartered Accountant',
-      desc: '[PLACEHOLDER. Profile to be completed once CV is received] Chartered accountant bringing financial rigour and sector expertise to every Business Central engagement.',
-      certifications: [
-        'ACA or ACCA [Placeholder]',
-        '[Additional credentials to be added]'
-      ],
-      image: '/expert_2.png',
-      socials: {
-        facebook: '#',
-        instagram: '#',
-        twitter: '#'
-      }
     }
   ];
 
@@ -82,7 +66,7 @@ const Team = () => {
             <div className="badge badge-left">
               <span className="dot"></span> OUR TEAM
             </div>
-            <h2 className="section-heading">Meet Our<br/><span className="text-muted">Consultants</span></h2>
+            <h2 className="section-heading">Meet Our<br/><span className="text-muted">Consultant</span></h2>
           </div>
           <div className="sh-right">
             <p className="section-subheading">
