@@ -19,7 +19,7 @@ const Team = () => {
         'APM Project Management Qualification (in progress)',
         'Associate Member, APM'
       ],
-      image: '/expert_1.png',
+      image: '/Kwesi image.png',
       socials: {
         facebook: '#',
         instagram: '#',
